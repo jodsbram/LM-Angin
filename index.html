@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Pengaruh Angin Dalam Pelayaran Masa Lalu</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --blue:#0e69b4;--blue2:#168ec2;--cyan:#2ab8c8;--navy:#15384d;
+  --yellow:#ffd84d;--orange:#ff9d24;--white:#fff;--ink:#173e54;--muted:#607c8c;
+  --green:#2da36e;--red:#d65252;--line:#dceaf0;--card:#fff;
+  --shadow:0 16px 38px rgba(8,61,91,.16)
+}
+html,body{margin:0;width:100%;height:100%;font-family:"Segoe UI",Arial,sans-serif;background:#102c40;color:var(--ink);overflow:hidden}
+button,input,textarea{font:inherit}button{cursor:pointer}
+button:disabled{cursor:not-allowed}
+#app{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(98vw,calc(96vh * 16 / 9));height:min(96vh,calc(98vw * 9 / 16));aspect-ratio:16/9;background:#eaf6fa;overflow:hidden;border-radius:14px;box-shadow:0 0 55px rgba(0,0,0,.42)}
+.screen{position:absolute;inset:0;display:none;overflow:hidden}
+.screen.active{display:block;animation:fade .24s ease}
+@keyframes fade{from{opacity:.2;transform:scale(1.008)}to{opacity:1;transform:none}}
+.shell{position:relative;width:100%;height:100%;padding:2.6% 4.2% 3.1%}
+.heading{text-align:center;width:min(1180px,91%);margin:0 auto .8%}
+.kicker{color:#0d73a7;font-size:clamp(10px,.78vw,14px);font-weight:950;letter-spacing:.13em}
+.heading h2{margin:.14em 0 .13em;color:#104ea2;font-size:clamp(26px,2.35vw,40px);line-height:1.06}
+.heading p{margin:0 auto;max-width:1050px;color:#47697b;font-size:clamp(13px,.95vw,17px);line-height:1.42;font-weight:700}
+.card{background:#fff;border:1px solid rgba(70,150,180,.12);border-radius:22px;box-shadow:var(--shadow)}
+.home-btn{position:absolute;z-index:40;left:2.3%;top:3%;width:clamp(46px,4vw,68px);height:clamp(46px,4vw,68px);border:none;border-radius:50%;background:var(--yellow);color:#5d4800;border:4px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.16);font-size:clamp(20px,1.7vw,28px);font-weight:900}
+.nav-row{position:absolute;left:4.2%;right:4.2%;bottom:2.7%;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.nav-btn{min-width:145px;min-height:46px;padding:0 18px;border:0;border-radius:14px;font-size:clamp(12px,.9vw,15px);font-weight:900;box-shadow:0 7px 18px rgba(0,55,85,.12)}
+.nav-btn.back{background:#fff;color:#274e62}.nav-btn.next{background:#168fb5;color:#fff}.nav-btn.yellow{background:var(--yellow);color:#584300}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;background:#e9f5fa;color:#0b699c;font-size:clamp(9px,.7vw,12px);font-weight:900}
+.asset-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7%;background:linear-gradient(145deg,#e9f6fa,#f9fcfd);color:#537789;border:2px dashed #8dbfd1}
+.asset-placeholder b{color:#0c6a9f}.asset-placeholder small{display:block;margin-top:5px;line-height:1.35}
+.hidden{display:none!important}
+
+/* COVER */
+.cover-screen{background:linear-gradient(135deg,#0b4ea2,#117fd0 50%,#20b7ca);background-size:cover;background-position:center}
+.cover-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,34,55,.16),rgba(3,31,49,.32))}
+.cover-content{position:absolute;z-index:3;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7% 14% 13%}
+.cover-chip{padding:.55em 1.1em;border-radius:999px;background:rgba(255,255,255,.94);color:#0c5da8;font-size:clamp(10px,.78vw,14px);font-weight:950;letter-spacing:.1em}
+.cover-content h1{margin:.28em 0 .12em;color:#fff;font-size:clamp(42px,4.75vw,76px);line-height:.98;text-shadow:0 5px 18px rgba(0,0,0,.23)}
+.cover-content p{margin:0;max-width:950px;color:#f5fbff;font-size:clamp(14px,1.15vw,21px);line-height:1.45;font-weight:720;text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.start-btn{position:absolute;z-index:6;left:50%;bottom:4.3%;transform:translateX(-50%);min-width:clamp(245px,24vw,390px);min-height:clamp(52px,4.8vw,72px);padding:0 28px;border:0;border-radius:999px;background:linear-gradient(135deg,#ffe14d,#ff9d22);color:#292000;font-size:clamp(16px,1.45vw,24px);font-weight:950;box-shadow:0 12px 30px rgba(220,126,20,.38)}
+.top-logo{position:absolute;z-index:8;top:3%;width:clamp(48px,4.8vw,82px);height:clamp(48px,4.8vw,82px);object-fit:contain;padding:6px;border-radius:50%;background:rgba(255,255,255,.95);border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.2)}
+.logo-left{left:2.4%}.logo-group{position:absolute;right:2.4%;top:3%;z-index:8;display:flex;gap:8px}.logo-group .top-logo{position:relative;top:auto}
+
+/* INFO AWAL */
+.info-screen{background:linear-gradient(135deg,#eefafd,#ddecf3)}
+.info-grid{width:min(1080px,84%);height:58%;margin:1.6% auto 0;display:grid;grid-template-columns:1fr 1fr;gap:2%}
+.info-card{position:relative;border:3px solid transparent;background:#fff;border-radius:26px;padding:5.5%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow);transition:.17s}
+.info-card:hover{transform:translateY(-5px)}.info-card.read{border-color:#36a973;background:linear-gradient(180deg,#fff,#eefaf4)}
+.info-icon{font-size:clamp(52px,4.8vw,80px);line-height:1;margin-bottom:5%}
+.info-card h3{margin:0 0 8px;color:#0e60a3;font-size:clamp(22px,1.75vw,30px)}
+.info-card p{margin:0;color:#607b8a;font-size:clamp(11px,.86vw,15px);line-height:1.4;font-weight:750}
+.info-check{position:absolute;right:5%;top:5%;width:33px;height:33px;border-radius:50%;display:grid;place-items:center;background:#dce7ed;color:#78909c;font-weight:950}.info-card.read .info-check{background:#38ad78;color:#fff}
+.info-continue{display:block;margin:2% auto 0;min-width:clamp(250px,22vw,370px);min-height:clamp(48px,4vw,62px);border:0;border-radius:999px;background:linear-gradient(135deg,#ffe14d,#ffac24);color:#403200;font-size:clamp(14px,1.1vw,19px);font-weight:950;box-shadow:0 9px 22px rgba(216,150,20,.28)}
+.info-continue:disabled{background:#cbd6dc;color:#73838b;box-shadow:none}
+.info-hint{text-align:center;margin-top:.7%;color:#607b8a;font-size:clamp(9px,.68vw,12px);font-weight:800}
+
+/* MENU */
+.activity-screen{background:linear-gradient(135deg,#e9f8fb,#dceef4)}
+.activity-grid{position:absolute;left:50%;top:54.5%;transform:translate(-50%,-50%);width:91%;display:grid;grid-template-columns:repeat(4,1fr);gap:1.3%}
+.activity-card{position:relative;height:clamp(260px,31vw,390px);max-height:53vh;border:0;border-radius:26px;padding:7% 7% 6%;color:#fff;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:0 15px 30px rgba(8,91,145,.2);transition:.16s}
+.activity-card:hover:not(:disabled){transform:translateY(-5px)}
+.activity-card.locked{filter:saturate(.55);opacity:.6}.activity-card:disabled{cursor:not-allowed}
+.activity-card .icon{width:clamp(64px,5.6vw,96px);height:clamp(64px,5.6vw,96px);border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);font-size:clamp(30px,2.5vw,44px);border:2px dashed rgba(255,255,255,.6);margin-bottom:7%}
+.activity-card h3{margin:0;font-size:clamp(18px,1.55vw,27px)}
+.activity-card p{margin:auto 0 0;padding:.65em .85em;border-radius:16px;background:rgba(0,65,120,.2);font-size:clamp(9px,.7vw,12px);line-height:1.3;font-weight:800}
+.c1{background:linear-gradient(180deg,#31adee,#168bd2)}.c2{background:linear-gradient(180deg,#32c1ca,#179ca9)}.c3{background:linear-gradient(180deg,#4ca4f3,#2672ce)}.c4{background:linear-gradient(180deg,#38b8a2,#1b947f)}
+.activity-tools{position:absolute;left:50%;bottom:2.2%;transform:translateX(-50%);width:min(780px,69%);display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.activity-tools button{min-height:38px;border:0;border-radius:999px;background:#fff;color:#31586c;box-shadow:0 7px 16px rgba(0,55,85,.12);font-size:clamp(9px,.68vw,12px);font-weight:900}
+.reset-btn{position:absolute;right:2.6%;top:3.1%;z-index:25;min-height:34px;padding:0 11px;border:0;border-radius:999px;background:rgba(255,255,255,.92);color:#526f7e;font-size:clamp(8px,.6vw,10px);font-weight:900;box-shadow:0 6px 15px rgba(0,55,85,.1)}
+
+
+/* CLICKABLE CARD MOTION + SOFT SHINE */
+.info-card:not(:disabled),
+.activity-card:not(:disabled),
+.choice-card:not(:disabled),
+.option-btn:not(:disabled){
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  animation:clickableBreath 3.6s ease-in-out infinite;
+  will-change:scale,box-shadow;
+}
+.info-card:not(:disabled)::after,
+.activity-card:not(:disabled)::after,
+.choice-card:not(:disabled)::after,
+.option-btn:not(:disabled)::after{
+  content:"";
+  position:absolute;
+  z-index:3;
+  top:-45%;
+  left:-55%;
+  width:28%;
+  height:190%;
+  pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),rgba(255,255,255,.58),rgba(255,255,255,.08),transparent);
+  transform:rotate(18deg);
+  filter:blur(.3px);
+  animation:cardShine 4.8s ease-in-out infinite;
+}
+.info-card:not(:disabled):hover,
+.activity-card:not(:disabled):hover,
+.choice-card:not(:disabled):hover,
+.option-btn:not(:disabled):hover{
+  animation-play-state:paused;
+  scale:1.018;
+}
+@keyframes clickableBreath{
+  0%,100%{scale:1;box-shadow:var(--shadow)}
+  50%{scale:1.008;box-shadow:0 18px 42px rgba(8,61,91,.20)}
+}
+@keyframes cardShine{
+  0%,58%{left:-55%;opacity:0}
+  64%{opacity:.9}
+  78%{left:132%;opacity:.9}
+  84%,100%{left:132%;opacity:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .info-card:not(:disabled),.activity-card:not(:disabled),.choice-card:not(:disabled),.option-btn:not(:disabled),
+  .info-card:not(:disabled)::after,.activity-card:not(:disabled)::after,.choice-card:not(:disabled)::after,.option-btn:not(:disabled)::after{animation:none!important}
+}
+
+/* MATERI */
+.material-layout{width:min(1260px,93%);height:72%;margin:.6% auto 0;display:grid;grid-template-columns:1.05fr .95fr;gap:1.5%}
+.material-copy,.material-visual{min-height:0;padding:2.5%;display:flex;flex-direction:column}
+.material-copy{justify-content:center}.material-visual{align-items:center;justify-content:center}
+.material-copy h3{margin:0 0 9px;color:#0d5e9f;font-size:clamp(24px,1.8vw,32px);line-height:1.15}
+.material-copy p,.material-copy li{color:#315569;font-size:clamp(17px,1.02vw,20px);line-height:1.5;font-weight:700}
+.material-copy p{margin:0}.material-copy p+p{margin-top:8px}.material-copy ul{margin:9px 0 0;padding-left:20px}.material-copy li{margin:4px 0}
+.material-note{margin-top:10px;padding:10px 12px;border-radius:13px;background:#fff8d8;border:1px solid #edd979;color:#624e0d;font-size:clamp(16px,.92vw,18px);line-height:1.4;font-weight:850}
+.material-formula{margin-top:10px;padding:11px 13px;border-radius:14px;background:#0d5ea8;color:#fff;text-align:center;font-size:clamp(17px,1.12vw,21px);font-weight:950}
+.material-img-frame{position:relative;width:100%;max-width:560px;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#eef8fb;box-shadow:0 9px 22px rgba(0,65,100,.1)}
+.material-img-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#f8fcfd;display:none}
+.material-img-note{margin-top:8px;color:#5f7887;font-size:clamp(14px,.82vw,16px);font-weight:800;text-align:center}
+.material-progress{display:flex;justify-content:center;gap:5px;margin-top:8px}.material-dot{width:9px;height:9px;border-radius:50%;background:#c8d8e0}.material-dot.active{background:#168fb5}.material-dot.done{background:#39aa77}
+.material-layout.material-fulltext{
+  grid-template-columns:1fr!important;
+  width:min(1100px,88%)!important;
+}
+
+/* Scroll hanya untuk kartu teks materi */
+.material-copy{
+  justify-content:flex-start!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  scrollbar-width:thin;
+  scrollbar-color:#9fc9d8 transparent;
+}
+
+/* beri ruang atas-bawah agar teks tidak mepet */
+.material-copy{
+  padding-top:2.5%!important;
+  padding-bottom:2.5%!important;
+}
+
+/* scrollbar Chrome / Edge */
+.material-copy::-webkit-scrollbar{
+  width:8px;
+}
+
+.material-copy::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+.material-copy::-webkit-scrollbar-thumb{
+  background:#9fc9d8;
+  border-radius:999px;
+}
+
+.material-copy::-webkit-scrollbar-thumb:hover{
+  background:#6faec4;
+}
+
+.material-layout.material-fulltext .material-copy{
+  width:100%;
+  padding:3.5% 4%;
+}
+
+.material-layout.material-fulltext .material-copy h3{
+  font-size:clamp(28px,2vw,36px);
+}
+
+.material-layout.material-fulltext .material-copy p,
+.material-layout.material-fulltext .material-copy li{
+  font-size:clamp(18px,1.1vw,21px);
+  line-height:1.55;
+}
+
+/* POPUP SELESAI MATERI */
+.material-finish-popup{
+  position:absolute;
+  inset:0;
+  z-index:900;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:4%;
+  background:rgba(8,35,52,.58);
+  backdrop-filter:blur(5px);
+}
+
+.material-finish-popup.show{
+  display:flex;
+  animation:materialPopupFade .25s ease;
+}
+
+.material-finish-box{
+  width:min(620px,78%);
+  padding:34px 38px;
+  background:#fff;
+  border-radius:26px;
+  text-align:center;
+  box-shadow:0 24px 60px rgba(0,0,0,.28);
+  animation:materialPopupIn .35s ease;
+}
+
+.material-finish-icon{
+  width:76px;
+  height:76px;
+  margin:0 auto 14px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#e8f8ef;
+  font-size:38px;
+}
+
+.material-finish-box h2{
+  margin:0 0 10px;
+  color:#0d5fa5;
+  font-size:clamp(26px,2vw,36px);
+}
+
+.material-finish-box p{
+  margin:0 auto;
+  max-width:520px;
+  color:#35596b;
+  font-size:clamp(16px,1vw,19px);
+  line-height:1.55;
+  font-weight:700;
+}
+
+.material-finish-box button{
+  margin-top:22px;
+  min-width:260px;
+  min-height:50px;
+  padding:0 24px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(135deg,#ffe14d,#ffad24);
+  color:#443300;
+  font-size:clamp(15px,1vw,18px);
+  font-weight:950;
+  cursor:pointer;
+  box-shadow:0 9px 22px rgba(216,150,20,.28);
+}
+
+.material-finish-box button:hover{
+  transform:translateY(-2px) scale(1.02);
+}
+
+@keyframes materialPopupFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes materialPopupIn{
+  from{
+    opacity:0;
+    transform:translateY(15px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* WIND SIMULATION — PEMBENTUKAN ANGIN MUSON */
+.wind-screen{background:linear-gradient(135deg,#edf9fc,#d9eef5)}
+.wind-layout{
+  width:min(1280px,94%);height:72%;margin:.45% auto 0;
+  display:grid;grid-template-columns:1.34fr .66fr;gap:1.25%
+}
+.wind-map-card{position:relative;min-height:0;padding:1.25%;display:flex;flex-direction:column;overflow:hidden}
+.wind-map-stage{
+  position:relative;flex:1;min-height:0;border-radius:18px;overflow:hidden;
+  background:linear-gradient(180deg,#b7def3,#eaf5ef);border:1px solid #c6e0ea
+}
+.wind-map-stage img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:none;z-index:1;
+  background:#e7f5fa
+}
+.wind-map-fallback{
+  position:absolute;inset:0;z-index:0;display:grid;place-items:center;text-align:center;
+  padding:8%;color:#426b80;background:linear-gradient(145deg,#dceff7,#f2f9fb)
+}
+
+/* Area suhu dapat dipindahkan setelah PNG peta final tersedia */
+.temperature-zone{
+  position:absolute;z-index:2;pointer-events:none;opacity:.95;
+  transition:background .7s ease,opacity .7s ease,transform .7s ease;
+  border-radius:42%
+}
+.asia-zone{left:14.5%;top:-9.5%;width:43%;height:42%}
+.australia-zone{left:52.5%;bottom:3.5%;width:39%;height:42%}
+.hot-zone{
+  background:radial-gradient(circle at 50% 50%,rgba(255,125,0,.48),rgba(255,174,45,.20) 48%,rgba(255,174,45,0) 76%)
+}
+.cool-zone{
+  background:radial-gradient(circle at 50% 50%,rgba(35,145,255,.40),rgba(61,180,255,.15) 48%,rgba(61,180,255,0) 76%)
+}
+.neutral-zone{
+  background:radial-gradient(circle at 50% 50%,rgba(255,217,95,.20),rgba(255,255,255,.06) 52%,transparent 76%)
+}
+
+/* SVG transparan di atas peta */
+.wind-svg{position:absolute;inset:0;z-index:4;width:100%;height:100%;pointer-events:none;overflow:visible}
+.wind-svg .wind-flow{
+  fill:none;stroke:rgba(255,255,255,.90);stroke-width:5;stroke-linecap:round;
+  stroke-dasharray:18 18;filter:drop-shadow(0 0 5px rgba(36,155,220,.70));
+  animation:windDash 1.25s linear infinite
+}
+.wind-svg .wind-flow.soft{stroke-width:4;stroke:rgba(255,255,255,.68);stroke-dasharray:12 18}
+.wind-svg .wind-dot{fill:#fff;filter:drop-shadow(0 0 5px rgba(18,140,215,.9))}
+.wind-svg.paused .wind-flow{animation-play-state:paused}
+@keyframes windDash{to{stroke-dashoffset:-72}}
+
+.wind-group{display:none}
+.wind-group.active{display:inline}
+.wind-group.transition-group .wind-flow{opacity:.55;animation-duration:2.2s}
+
+/* Label lokasi dan kondisi */
+.wind-label{
+  position:absolute;z-index:6;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.92);
+  color:#145b81;font-size:clamp(9px,.68vw,12px);font-weight:950;
+  box-shadow:0 4px 12px rgba(0,50,80,.12)
+}
+.wind-label.asia{left:7%;top:7%}
+.wind-label.indonesia{left:36%;top:53%}
+.wind-label.australia{left:42%;bottom:0%}
+.climate-badge{
+  position:absolute;z-index:7;min-width:118px;padding:7px 9px;border-radius:12px;
+  background:rgba(255,255,255,.92);box-shadow:0 6px 16px rgba(0,50,80,.13);
+  color:#31576a;font-size:clamp(8px,.62vw,10.5px);font-weight:850;line-height:1.28
+}
+.climate-badge b{display:block;color:#0e649e;margin-bottom:2px}
+.asia-climate{left:5%;top:17%}
+.australia-climate{left:57%;bottom:3%}
+
+/* Slider bulan */
+.month-control{
+  flex:0 0 auto;margin-top:8px;padding:9px 11px;border-radius:15px;
+  background:#f4f9fb;border:1px solid #dbeaf0
+}
+.month-control-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.month-control-head b{color:#0d619e;font-size:clamp(11px,.82vw,14px)}
+.month-value{
+  padding:5px 10px;border-radius:999px;background:#0d5ea8;color:#fff;
+  font-size:clamp(10px,.72vw,12px);font-weight:950
+}
+#monthSlider{display:block;width:100%;margin:8px 0 5px;accent-color:#168fb5}
+.month-labels{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
+.month-labels span{text-align:center;color:#607b89;font-size:clamp(7px,.49vw,9px);font-weight:850}
+.month-help{margin-top:5px;color:#5c7685;font-size:clamp(8px,.58vw,10px);font-weight:750;line-height:1.3}
+
+/* Panel analisis */
+.wind-side{
+  padding:2%;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+
+  overflow-y:auto;
+  overflow-x:hidden;
+
+  scrollbar-width:thin;
+  scrollbar-color:#9fc9d8 transparent;
+}
+.wind-side h3{margin:0;color:#0d5f9e;font-size:clamp(18px,1.35vw,24px)}
+.wind-side>p{margin:4px 0 0;color:#456779;font-size:clamp(9px,.7vw,12px);line-height:1.4;font-weight:720}
+.wind-side::-webkit-scrollbar{
+  width:8px;
+}
+
+.wind-side::-webkit-scrollbar-track{
+  background:transparent;
+}
+
+.wind-side::-webkit-scrollbar-thumb{
+  background:#9fc9d8;
+  border-radius:999px;
+}
+
+.wind-side::-webkit-scrollbar-thumb:hover{
+  background:#6faec4;
+}
+.wind-side{
+  padding-bottom:18px;
+}
+.wind-status{
+  margin-top:8px;padding:9px 11px;border-radius:13px;background:#eaf6fa;color:#0c6799;
+  font-size:clamp(10px,.78vw,13px);font-weight:950;text-align:center
+}
+.cause-chain{display:grid;gap:6px;margin-top:8px}
+.cause-item{
+  padding:7px 9px;border-radius:11px;background:#f4f9fb;border-left:4px solid #20a2c7;
+  color:#35596a;font-size:clamp(8.5px,.64vw,11px);line-height:1.28;font-weight:800
+}
+.cause-item b{color:#0d639f}
+.condition-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:8px}
+.condition-box{padding:8px;border-radius:12px;background:#f5fafc;border:1px solid #dfeaf0}
+.condition-box h4{margin:0 0 4px;color:#0d639f;font-size:clamp(10px,.75vw,12.5px)}
+.condition-box p{margin:2px 0;color:#4d6d7c;font-size:clamp(8px,.58vw,10px);line-height:1.25;font-weight:780}
+.wind-info-box{
+  margin-top:8px;min-height:64px;padding:9px 10px;border-radius:12px;background:#fff8d8;
+  color:#604d11;font-size:clamp(8.5px,.63vw,10.5px);line-height:1.35;font-weight:800
+}
+.wind-progress-box{
+  margin-top:auto;padding:8px 10px;border-radius:12px;background:#eef5f8;color:#4b6877;
+  font-size:clamp(8.5px,.63vw,10.5px);font-weight:900
+}
+.wind-progress-box.complete{background:#e8f8ef;color:#276344}
+.wind-side-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:7px}
+.wind-side-actions button{
+  min-height:38px;border:0;border-radius:11px;font-weight:900;font-size:clamp(9px,.66vw,11px)
+}
+.wind-explain-btn{background:#168fb5;color:#fff}
+.wind-pause-btn{background:#e9f2f6;color:#31586a}
+.wind-note{
+  margin-top:6px;color:#6c808a;font-size:clamp(7.5px,.54vw,9.5px);line-height:1.25;font-weight:750
+}
+
+.wind-bottom-nav{
+  position:absolute;
+  left:4.2%;
+  right:4.2%;
+  bottom:2.2%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  z-index:25;
+}
+
+.wind-bottom-btn{
+  min-width:190px;
+  min-height:46px;
+  padding:0 18px;
+  border:0;
+  border-radius:14px;
+  font-size:clamp(13px,.9vw,16px);
+  font-weight:900;
+  box-shadow:0 7px 18px rgba(0,55,85,.14);
+}
+
+.wind-bottom-btn.back{
+  background:#fff;
+  color:#31586a;
+}
+
+.wind-bottom-btn.next{
+  background:linear-gradient(135deg,#ffe14d,#ffad24);
+  color:#4a3700;
+}
+
+/* PRACTICE */
+.practice-wrap{width:min(1160px,89%);height:73%;margin:.5% auto 0;display:grid;grid-template-columns:.27fr .73fr;gap:1.4%}
+.practice-info{padding:6%;display:flex;flex-direction:column;justify-content:center;text-align:center}.practice-info .big{font-size:clamp(52px,5vw,82px)}.practice-info strong{color:#0d5f9f;font-size:clamp(18px,1.45vw,24px)}.practice-info p{font-size:clamp(10px,.74vw,12px);color:#607b8a;font-weight:750;line-height:1.4}
+.practice-box{padding:2.4%;display:grid;grid-template-rows:8px auto auto 1fr auto 42px;row-gap:7px;min-height:0;overflow:hidden}
+.practice-progress{height:8px;border-radius:999px;background:#e6eef3;overflow:hidden}.practice-progress div{height:100%;background:linear-gradient(90deg,#168fb5,#20b7ca);transition:.2s}
+.practice-topic{font-size:clamp(9px,.7vw,12px);font-weight:950;color:#0f75a7;letter-spacing:.08em}.practice-question{margin:0;color:#173f59;font-size:clamp(17px,1.3vw,23px);line-height:1.2}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-height:0}.option-btn{min-height:56px;padding:9px 11px;border:2px solid #d7e7ee;border-radius:14px;background:#fff;color:#244b60;text-align:left;font-size:clamp(10px,.78vw,13px);font-weight:820}.option-btn:hover{border-color:#70b8cf;background:#f5fbfd}.option-btn.correct{background:#e7f8ee;border-color:#43af78;color:#17643f}.option-btn.wrong{background:#fff0f0;border-color:#e17878;color:#953333}
+.practice-feedback{min-height:44px;padding:8px 10px;border-radius:12px;background:#f3f8fb;color:#456474;font-size:clamp(9px,.68vw,11px);line-height:1.35;font-weight:800}.practice-next{justify-self:end;min-width:125px;min-height:38px;border:0;border-radius:12px;background:#168fb5;color:#fff;font-weight:900}
+.practice-result{width:min(920px,78%);margin:8% auto 0;padding:4%;text-align:center}.practice-result .score{font-size:clamp(54px,5.4vw,90px);font-weight:950;color:#0d65aa;line-height:1}.practice-result h3{margin:5px 0;color:#104f8a;font-size:clamp(23px,2vw,34px)}.practice-result p{color:#5c7684;font-size:clamp(11px,.85vw,14px);font-weight:720;line-height:1.45}.practice-result-actions{display:flex;justify-content:center;gap:9px;margin-top:15px}
+
+/* LAB VARIABLE */
+.lab-screen{background:linear-gradient(135deg,#edf9fc,#dceef5)}
+.lab-layout{width:min(1260px,93%);height:70%;margin:.5% auto 0;display:grid;grid-template-columns:.95fr 1.05fr;gap:1.4%}
+.lab-panel{padding:2.1%;min-height:0;overflow:hidden}.lab-panel h3{margin:0 0 7px;color:#0d5f9f;font-size:clamp(18px,1.4vw,24px)}.lab-panel>p{margin:0;color:#587382;font-size:clamp(9px,.7vw,12px);font-weight:730}
+.choice-grid{display:grid;gap:8px;margin-top:10px}.wind-lab-grid{grid-template-columns:1fr 1fr}.ship-grid{grid-template-columns:repeat(3,1fr)}
+.choice-card{position:relative;min-height:155px;border:2px solid #d8e8ef;border-radius:16px;background:#fff;padding:11px;text-align:left;display:flex;flex-direction:column;transition:.15s}.choice-card:hover{border-color:#72b9cf}.choice-card.selected{border-color:#168fb5;background:#eaf7fb;box-shadow:0 0 0 3px rgba(22,143,181,.11)}
+.choice-card .mini-icon{font-size:34px}.choice-card h4{margin:6px 0 4px;color:#0d639f;font-size:clamp(13px,.95vw,16px)}.choice-card p{margin:0;color:#4e6d7c;font-size:clamp(8.5px,.64vw,10.5px);line-height:1.35;font-weight:720}
+.ship-choice-img{
+  width:100%;
+  height:70px;
+  object-fit:contain;
+  margin-bottom:4px;
+  display:block;
+}
+.lab-action-bar{position:absolute;left:50%;bottom:2.2%;transform:translateX(-50%);width:86%;display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:10px;align-items:center}.lab-start-btn{min-height:48px;border:0;border-radius:14px;background:linear-gradient(135deg,#ffe14d,#ffab23);color:#493700;font-weight:950;font-size:clamp(13px,1vw,17px);box-shadow:0 8px 20px rgba(220,150,20,.24)}.lab-start-btn:disabled{background:#cbd5db;color:#75838b;box-shadow:none}.lab-extra-btn{min-height:48px;border:0;border-radius:14px;background:#fff;color:#31586a;box-shadow:0 7px 17px rgba(0,55,85,.1);font-weight:900;font-size:clamp(10px,.76vw,13px)}.lab-extra-btn.locked,.lab-extra-btn:disabled{opacity:.5}
+.lab-progress-text{text-align:center;margin-top:8px;color:#527181;font-size:clamp(9px,.68vw,11px);font-weight:850}
+
+
+/* LAB MAYA — WAKTU KEBERANGKATAN + MUSON TERDETEKSI */
+.lab-detected{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  background:#eef5f8;
+  border:1px solid #d8e7ed;
+  color:#476879;
+  text-align:center;
+  font-size:clamp(12px,.8vw,15px);
+  line-height:1.35;
+  font-weight:850;
+}
+
+.lab-detected.detected{
+  background:#e8f8ef;
+  border-color:#bfe3cd;
+  color:#276344;
+}
+
+.lab-intro-box{
+  width:min(760px,84%);
+  text-align:center;
+}
+
+.lab-intro-icon{
+  width:72px;
+  height:72px;
+  margin:0 auto 10px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#eaf6fa;
+  font-size:36px;
+}
+
+.lab-intro-box .modal-section,
+.lab-intro-box .modal-highlight{
+  text-align:left;
+}
+
+.lab-intro-start{
+  margin-top:18px;
+  min-height:50px;
+  padding:0 22px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(135deg,#ffe14d,#ffad24);
+  color:#443300;
+  font-size:clamp(14px,.95vw,18px);
+  font-weight:950;
+  box-shadow:0 8px 20px rgba(216,150,20,.24);
+}
+
+/* RESULT */
+.result-screen{background:linear-gradient(135deg,#edf9fc,#dceef5)}
+.result-output-shell{
+  width:100%;
+  height:100%;
+  padding:3% 5% 2.6%;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  gap:1.3%;
+}
+.result-observe{
+  width:min(1050px,86%);
+  margin:0 auto;
+  padding:11px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.96);
+  color:#244f65;
+  text-align:center;
+  font-size:clamp(17px,1.18vw,22px);
+  line-height:1.42;
+  font-weight:900;
+  box-shadow:0 8px 22px rgba(0,55,85,.12);
+}
+.result-video-wrap{
+  position:relative;
+  width:min(1120px,88%);
+  min-height:0;
+  margin:0 auto;
+  border-radius:22px;
+  overflow:hidden;
+  background:#061722;
+  border:4px solid #fff;
+  box-shadow:0 16px 40px rgba(0,55,90,.24);
+
+  .result-video-control{
+  position:absolute;
+  right:14px;
+  bottom:14px;
+  z-index:10;
+
+  min-width:110px;
+  min-height:42px;
+  padding:0 14px;
+
+  border:2px solid rgba(255,255,255,.75);
+  border-radius:999px;
+
+  background:rgba(10,35,50,.72);
+  color:#fff;
+
+  font-size:clamp(12px,.82vw,15px);
+  font-weight:900;
+
+  backdrop-filter:blur(6px);
+  box-shadow:0 6px 18px rgba(0,0,0,.22);
+}
+
+.result-video-control:hover{
+  background:rgba(10,35,50,.9);
+  transform:scale(1.03);
+
+}
+}
+.result-video-wrap video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  background:#000;
+  display:none;
+}
+.result-actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+.result-actions button{
+  min-width:210px;
+  min-height:46px;
+  padding:0 18px;
+  border:0;
+  border-radius:14px;
+  font-size:clamp(13px,.9vw,16px);
+  font-weight:950;
+}
+.explain-btn{background:#168fb5;color:#fff}
+.retry-btn{background:#fff;color:#31586a;box-shadow:0 7px 18px rgba(0,55,85,.12)}
+
+.result-explain-grid{display:grid;gap:10px;margin-top:10px}
+.result-explain-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.result-explain-meta .meta-box{
+  padding:10px 11px;
+  border-radius:12px;
+  background:#eef6fa;
+  color:#31586a;
+  text-align:center;
+  font-size:clamp(12px,.8vw,14px);
+  font-weight:850;
+}
+.result-explain-block{
+  padding:12px 14px;
+  border-radius:14px;
+  background:#f5fafc;
+  border:1px solid #e0edf2;
+}
+.result-explain-block h3{
+  margin:0 0 6px;
+  color:#0d639f;
+  font-size:clamp(17px,1.15vw,21px);
+}
+.result-explain-block p{
+  margin:0;
+  color:#35596b;
+  font-size:clamp(13px,.86vw,15px);
+  line-height:1.52;
+  font-weight:720;
+}
+.result-explain-block.lesson{
+  background:#fff8d8;
+  border-color:#edd979;
+}
+
+/* REFLECTION */
+.reflection-grid{width:min(1180px,90%);height:65%;margin:.7% auto 0;display:grid;grid-template-columns:1fr 1fr;gap:1.2%}.reflection-card{
+  padding:4%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:150px;
+  text-align:center;
+}.reflection-card label{
+  margin:0;
+  color:#0d5d99;
+  font-size:clamp(18px,1.3vw,24px);
+  line-height:1.45;
+  font-weight:900;
+}
+
+/* MODALS */
+.modal{position:absolute;z-index:1000;inset:0;display:none;align-items:center;justify-content:center;padding:2%;background:rgba(7,31,47,.66);backdrop-filter:blur(5px);overflow:auto}.modal.show{display:flex}.modal-box{position:relative;width:min(980px,86%);max-height:86%;overflow:auto;background:#fff;border-radius:24px;padding:3%;box-shadow:0 24px 70px rgba(0,0,0,.3)}.modal-close{position:absolute;right:16px;top:14px;width:40px;height:40px;border:0;border-radius:50%;background:#dce7ed;color:#395a6b;font-weight:900}.modal-box h2{margin:0 0 8px;color:#0d5fa5;font-size:clamp(24px,2vw,34px)}.modal-box h3{color:#0d65a1}.modal-box p,.modal-box li{color:#35596b;font-size:clamp(11px,.84vw,14px);line-height:1.5}.modal-box ul{padding-left:20px}.modal-highlight{margin-top:12px;padding:11px 13px;border-radius:13px;background:#fff8d8;border:1px solid #edd979;color:#624e0d;font-weight:820}.modal-section{margin-top:12px;padding:12px 14px;border-radius:14px;background:#f4f9fb;border:1px solid #e0edf2}.modal-section h3{margin:0 0 6px}.modal-section p{margin:0}.glossary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.glossary-item{padding:10px 11px;border-radius:12px;background:#f4f9fb;border:1px solid #e0edf2}.glossary-item b{display:block;color:#0d67a0;font-size:clamp(10px,.78vw,13px)}.glossary-item span{display:block;margin-top:3px;color:#456778;font-size:clamp(9px,.7vw,12px);line-height:1.38;font-weight:720}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.summary-card{padding:12px 13px;border-radius:13px;background:#f4f9fb;border:1px solid #e0edf2}.summary-card.wide{grid-column:1/3}.summary-card h3{margin:0 0 5px}.summary-card p{margin:0}.summary-formula{margin:6px 0;padding:8px 10px;border-radius:10px;background:#0d5ea8;color:#fff;text-align:center;font-weight:900}
+.team-grid{display:grid;grid-template-columns:1.3fr 1fr .9fr;gap:9px}.team-group{padding:11px 12px;border-radius:13px;background:#f6fafc;border:1px solid #e0edf2}.team-group h3{margin:0 0 6px}.person{padding:5px 0;border-top:1px solid #e8eff3}.person:first-of-type{border-top:0}.person b{display:block;color:#294f62;font-size:clamp(9px,.68vw,11px)}.person span{display:block;color:#657d89;font-size:clamp(8px,.6vw,10px);margin-top:1px}
+.developer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.developer-card{display:grid;grid-template-columns:72px 1fr;gap:10px;padding:11px;border-radius:14px;background:#f4f9fb;border:1px solid #e0edf2}.developer-photo{position:relative;width:66px;aspect-ratio:4/5;border-radius:12px;overflow:hidden;background:#e8f4f8;border:2px dashed #8cbfd1}.developer-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}.developer-photo .ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-size:10px;color:#5a7786;font-weight:800}.developer-card h3{margin:0 0 4px;font-size:clamp(16px,1.15vw,20px)}.developer-card p{margin:3px 0;font-size:clamp(9px,.68vw,11px)}.ai-note{margin-top:12px;padding:12px 14px;border-radius:13px;background:#fff8dc;border:1px solid #efd979}.ai-note h3{margin:0 0 5px;color:#6b540e}.ai-note p{margin:0;color:#5e5537}
+
+/* ROTATE + MOBILE LANDSCAPE */
+#rotateWarning{display:none;position:fixed;inset:0;z-index:9999;background:#0d2c41;color:#fff;align-items:center;justify-content:center;text-align:center;padding:32px}#rotateWarning div{max-width:520px}#rotateWarning b{font-size:28px}#rotateWarning p{line-height:1.5}
+@media (orientation:portrait) and (max-width:980px){#rotateWarning{display:flex}}
+@media (max-width:980px) and (orientation:landscape){
+  html,body{width:100%;height:auto;min-height:100%;overflow-x:hidden!important;overflow-y:auto!important;background:#102c40}
+  #app{position:relative;left:auto;top:auto;transform:none;width:100vw;height:auto;min-height:56.25vw;aspect-ratio:16/9;overflow:visible;border-radius:0;box-shadow:none}
+  .screen{position:relative;inset:auto;width:100%;height:auto;min-height:56.25vw;overflow:visible}
+  .screen:not(.active){display:none!important}.screen.active{display:block}
+  .shell{height:auto;min-height:56.25vw}
+  .cover-screen{height:56.25vw!important;min-height:56.25vw!important;overflow:hidden!important}
+  .cover-content h1{font-size:6vw}.cover-content p{font-size:2vw}.cover-chip{font-size:1.3vw}.start-btn{min-width:30vw;min-height:6vw;font-size:2vw;bottom:4%}.top-logo{width:7vw;height:7vw}
+  .heading h2{font-size:3.2vw}.heading p{font-size:1.55vw}.kicker{font-size:1.25vw}
+  .activity-card{height:32vw;max-height:none}.activity-card h3{font-size:2.2vw}.activity-card p{font-size:1.2vw}.activity-card .icon{width:8vw;height:8vw;font-size:3.4vw}
+  .activity-tools button{font-size:1.1vw}.reset-btn{font-size:1vw}
+  .material-layout,.wind-layout,.practice-wrap,.lab-layout,.reflection-grid{height:auto;min-height:40vw}.material-copy p,.material-copy li{font-size:1.7vw}.material-copy h3{font-size:2.6vw}
+  .wind-side p,.wind-info-box{font-size:1.2vw}.choice-card p{font-size:1vw}.choice-card h4{font-size:1.5vw}
+  .result-screen{min-height:56.25vw}.result-shell{height:auto;min-height:56.25vw}.result-main{min-height:38vw}.result-info p{font-size:1.2vw}
+  .modal{position:fixed}.modal-box{width:90%;max-height:88vh}.modal-box p,.modal-box li{font-size:1.3vw}.glossary-item span{font-size:1.15vw}
+}
+
+/* v2 mobile landscape — simulasi bulan tetap 2 kolom dan terbaca */
+@media (max-width:980px) and (orientation:landscape){
+  .wind-layout{width:94%!important;grid-template-columns:1.32fr .68fr!important;gap:1.2vw!important}
+  .month-control{padding:1vw 1.2vw!important}
+  .month-control-head b{font-size:1.3vw!important}
+  .month-value{font-size:1.15vw!important}
+  .month-labels span{font-size:.82vw!important}
+  .month-help{font-size:.9vw!important}
+  .wind-side h3{font-size:2vw!important}
+  .wind-side>p{font-size:1.05vw!important}
+  .wind-status{font-size:1.15vw!important;padding:.8vw 1vw!important}
+  .cause-item{font-size:.95vw!important;padding:.7vw .8vw!important}
+  .condition-box h4{font-size:1.05vw!important}
+  .condition-box p{font-size:.88vw!important}
+  .wind-info-box,.wind-progress-box{font-size:.9vw!important}
+  .climate-badge{min-width:12vw;font-size:.82vw!important;padding:.7vw .8vw!important}
+  .wind-label{font-size:.9vw!important}
+}
+
+
+/* =========================================================
+   V5 — READABILITY + INTERACTIVE MOTION TANPA MENGUBAH LAYOUT
+   ========================================================= */
+
+/* Tombol menu bawah: Glosarium / Referensi / Profil Pengembang */
+.activity-tools button{
+  font-size:clamp(15px,1vw,18px)!important;
+  min-height:44px!important;
+  line-height:1.15!important;
+  padding:0 14px!important;
+}
+.reset-btn{font-size:clamp(12px,.78vw,14px)!important}
+
+/* Teks kecil yang masih sulit terbaca — dinaikkan secukupnya saja */
+.info-hint{font-size:clamp(12px,.78vw,14px)!important}
+.activity-card p{font-size:clamp(12px,.8vw,14px)!important}
+.material-copy p,.material-copy li{font-size:clamp(17px,1.02vw,20px)!important}
+.material-note{font-size:clamp(14px,.9vw,17px)!important}
+.material-img-note{font-size:clamp(12px,.78vw,14px)!important}
+.month-labels span{font-size:clamp(9px,.58vw,11px)!important}
+.month-help{font-size:clamp(10px,.66vw,12px)!important}
+.wind-side>p{font-size:clamp(11px,.72vw,13px)!important}
+.cause-item{font-size:clamp(10px,.68vw,12px)!important}
+.condition-box p{font-size:clamp(10px,.66vw,12px)!important}
+.wind-info-box,.wind-progress-box{font-size:clamp(10px,.66vw,12px)!important}
+.wind-note{font-size:clamp(9px,.6vw,11px)!important}
+.practice-info p{font-size:clamp(11px,.72vw,13px)!important}
+.practice-topic{font-size:clamp(11px,.72vw,13px)!important}
+.option-btn{font-size:clamp(12px,.8vw,14px)!important}
+.practice-feedback{font-size:clamp(11px,.72vw,13px)!important}
+.lab-panel>p{font-size:clamp(11px,.72vw,13px)!important}
+.choice-card p{font-size:clamp(11px,.72vw,13px)!important}
+.lab-progress-text{font-size:clamp(11px,.72vw,13px)!important}
+.result-status,.result-combo,.result-progress{font-size:clamp(11px,.72vw,13px)!important}
+.result-info p{font-size:clamp(12px,.78vw,14px)!important}
+.reflection-note{font-size:clamp(11px,.72vw,13px)!important}
+.modal-box p,.modal-box li{font-size:clamp(16px,.85vw,15px)!important}
+.glossary-item b{font-size:clamp(16px,.85vw,15px)!important}
+.glossary-item span{font-size:clamp(12px,.78vw,14px)!important}
+.person b{font-size:clamp(11px,.72vw,13px)!important}
+.person span{font-size:clamp(10px,.66vw,12px)!important}
+.developer-card p{font-size:clamp(11px,.72vw,13px)!important}
+
+/* Animasi HANYA ketika screen sedang aktif dan elemen dapat diklik. */
+.screen.active .info-card:not(:disabled),
+.screen.active .activity-card:not(:disabled),
+.screen.active .choice-card:not(:disabled),
+.screen.active .option-btn:not(:disabled),
+.screen.active .activity-tools button:not(:disabled){
+  position:relative;
+  overflow:hidden;
+  animation:v5Breath 3.4s ease-in-out infinite!important;
+  transform-origin:center center;
+  will-change:transform,box-shadow;
+}
+
+.screen.active .info-card:not(:disabled)::after,
+.screen.active .activity-card:not(:disabled)::after,
+.screen.active .choice-card:not(:disabled)::after,
+.screen.active .option-btn:not(:disabled)::after,
+.screen.active .activity-tools button:not(:disabled)::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:20;
+  top:-70%;
+  left:-45%;
+  width:24%;
+  height:240%;
+  opacity:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),rgba(255,255,255,.82),rgba(255,255,255,.18),transparent);
+  transform:rotate(18deg);
+  animation:v5Shine 4.6s ease-in-out infinite!important;
+}
+
+/* delay agar kilatan tidak bergerak serempak */
+.screen.active .info-card:nth-child(2),
+.screen.active .activity-card:nth-child(2),
+.screen.active .choice-card:nth-child(2),
+.screen.active .activity-tools button:nth-child(2){animation-delay:.35s!important}
+.screen.active .activity-card:nth-child(3),
+.screen.active .choice-card:nth-child(3),
+.screen.active .activity-tools button:nth-child(3){animation-delay:.7s!important}
+.screen.active .activity-card:nth-child(4){animation-delay:1.05s!important}
+.screen.active .info-card:nth-child(2)::after,
+.screen.active .activity-card:nth-child(2)::after,
+.screen.active .choice-card:nth-child(2)::after,
+.screen.active .activity-tools button:nth-child(2)::after{animation-delay:.65s!important}
+.screen.active .activity-card:nth-child(3)::after,
+.screen.active .choice-card:nth-child(3)::after,
+.screen.active .activity-tools button:nth-child(3)::after{animation-delay:1.3s!important}
+.screen.active .activity-card:nth-child(4)::after{animation-delay:1.95s!important}
+
+@keyframes v5Breath{
+  0%,100%{transform:scale(1);box-shadow:0 10px 24px rgba(8,61,91,.14)}
+  50%{transform:scale(1.016);box-shadow:0 15px 32px rgba(8,61,91,.23)}
+}
+@keyframes v5Shine{
+  0%,50%{left:-45%;opacity:0}
+  57%{opacity:.95}
+  76%{left:128%;opacity:.95}
+  82%,100%{left:128%;opacity:0}
+}
+
+/* Foto background per screen. Foto dibuat buram tanpa menyentuh layout konten. */
+.screen.photo-bg{
+  isolation:isolate;
+  background:transparent!important;
+}
+.screen.photo-bg::before{
+  content:"";
+  position:absolute;
+  inset:-18px;
+  z-index:-1;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(235,248,252,.82),rgba(225,243,248,.84)),
+    var(--screen-photo);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  filter:blur(0.5px);
+  transform:scale(1.035);
+}
+
+@media (max-width:980px) and (orientation:landscape){
+  .activity-tools button{font-size:1.45vw!important;min-height:4.2vw!important}
+  .material-copy p,.material-copy li{font-size:1.7vw!important}
+  .material-note{font-size:1.35vw!important}
+}
+
+
+@media (max-width:980px) and (orientation:landscape){
+  .result-output-shell{min-height:56.25vw}
+  .result-video-wrap{min-height:34vw}
+  .result-observe{font-size:1.7vw}
+  .result-explain-meta .meta-box{font-size:1.15vw}
+}
+
+</style>
+</head>
+<body>
+<div id="rotateWarning"><div><b>↻ Putar perangkat ke landscape</b><p>Media dirancang dengan komposisi 16:9. Gunakan posisi landscape agar teks, kartu, dan simulasi terlihat jelas. Setelah diputar, halaman hanya akan scroll secara vertikal bila diperlukan.</p></div></div>
+<div id="app">
+
+<!-- COVER -->
+<section class="screen active cover-screen" id="coverScreen">
+  
+  <button class="start-btn" onclick="showScreen('infoScreen')">Mulai Pembelajaran →</button>
+</section>
+
+<!-- INFO AWAL -->
+<section class="screen info-screen" id="infoScreen">
+  <button class="home-btn" onclick="showScreen('coverScreen')">🏠</button>
+  <div class="shell">
+    <div class="heading"><div class="kicker">SEBELUM MEMULAI</div><h2>Baca Informasi Awal Praktikum</h2><p>Buka kedua kartu terlebih dahulu agar kamu memahami tujuan dan cara menggunakan laboratorium maya.</p></div>
+    <div class="info-grid">
+      <button class="info-card" id="goalInfoCard" onclick="openInfo('goal')"><span class="info-check">✓</span><div class="info-icon">🎯</div><h3>Tujuan Praktikum</h3><p>Ketahui kemampuan yang akan kamu capai setelah melakukan simulasi.</p></button>
+      <button class="info-card" id="guideInfoCard" onclick="openInfo('guide')"><span class="info-check">✓</span><div class="info-icon">🧭</div><h3>Cara Penggunaan</h3><p>Pelajari alur memilih angin, kapal, menjalankan simulasi, dan membaca hasil.</p></button>
+    </div>
+    <button class="info-continue" id="infoContinueBtn" onclick="showScreen('activityScreen')" disabled>
+  Lanjut ke Pilih Aktivitas →
+</button>
+    <div class="info-hint" id="infoHint">Buka 2/2 kartu informasi untuk melanjutkan.</div>
+  </div>
+</section>
+
+<!-- MENU UTAMA -->
+<section class="screen activity-screen" id="activityScreen">
+  <button class="home-btn" onclick="showScreen('coverScreen')">🏠</button>
+  <button class="reset-btn" onclick="resetAllProgress()">↻ Reset Progres</button>
+  <div class="heading" style="margin-top:2.7%"><div class="kicker">PILIH AKTIVITAS</div><h2>Jelajahi Pelayaran Nusantara</h2><p>Pelajari konsepnya, eksperimenkan proses pembentukan angin muson, uji pemahamanmu, lalu tentukan strategi pelayaran.</p></div>
+  <div class="activity-grid">
+    <button class="activity-card c1" onclick="openMaterial()"><div class="icon">📘</div><h3>Materi</h3><p id="materialMenuText">14 materi • mulai dari konsep dasar</p></button>
+    <button class="activity-card c2 locked" id="windMenuCard" onclick="tryOpenWindSimulation()" disabled><div class="icon">🌬️</div><h3>Simulasi Angin Muson</h3><p id="windMenuText">🔒 Selesaikan seluruh materi terlebih dahulu</p></button>
+    <button class="activity-card c3 locked" id="practiceMenuCard" onclick="tryOpenPractice()" disabled><div class="icon">📝</div><h3>Latihan</h3><p id="practiceMenuText">🔒 Amati Muson Barat & Timur terlebih dahulu</p></button>
+    <button class="activity-card c4 locked" id="labMenuCard" onclick="tryOpenLab()" disabled><div class="icon">🧭</div><h3>Lab Maya</h3><p id="labMenuText">🔒 Amati Muson Barat & Timur terlebih dahulu</p></button>
+  </div>
+  <div class="activity-tools"><button onclick="openModal('glossaryModal')">📖 Glosarium</button><button onclick="openModal('referenceModal')">🔗 Referensi</button><button onclick="openModal('developerModal')">👨‍🏫 Profil Pengembang</button></div>
+</section>
+
+<!-- MATERI -->
+<section class="screen" id="materialScreen" style="background:linear-gradient(135deg,#f2fbfd,#e3f3f7)">
+  <button class="home-btn" onclick="showScreen('activityScreen')">🏠</button>
+  <div class="shell">
+    <div class="heading"><div class="kicker" id="materialKicker">MATERI 1 / 14</div><h2 id="materialTitle"></h2><p id="materialSubtitle"></p></div>
+    <div class="material-layout">
+      <div class="card material-copy" id="materialCopy"></div>
+      <div class="card material-visual"><div class="material-img-frame"><img id="materialImage" alt="Visual materi"><div class="asset-placeholder" id="materialImagePh"><b>Slot Visual Materi</b><small>Isi gambar melalui ASSETS.material1–material14<br>Rekomendasi 4:3 atau 16:9.</small></div></div><div class="material-img-note"></div></div>
+    </div>
+    <div class="material-progress" id="materialDots"></div>
+    <div class="nav-row"><button class="nav-btn back" id="materialPrev" onclick="changeMaterial(-1)">← Sebelumnya</button><button class="nav-btn next" id="materialNext" onclick="changeMaterial(1)">Berikutnya →</button></div>
+  </div>
+</section>
+
+<!-- POPUP SELESAI MATERI -->
+<div class="material-finish-popup" id="materialFinishPopup">
+  <div class="material-finish-box">
+    <div class="material-finish-icon">✅</div>
+
+    <h2>Materi Selesai!</h2>
+
+    <p>
+      Hebat! Kamu sudah menyelesaikan seluruh materi.
+      Sekarang <b>Simulasi Pembentukan Angin Muson</b> sudah terbuka.
+    </p>
+
+    <button onclick="closeMaterialFinishPopup()">
+      Lanjut ke Menu Aktivitas →
+    </button>
+  </div>
+</div>
+
+<!-- SIMULASI ANGIN -->
+<section class="screen wind-screen" id="windScreen">
+  <button class="home-btn" onclick="showScreen('activityScreen')">🏠</button>
+  <div class="shell">
+    <div class="heading">
+      <div class="kicker">SIMULASI PEMBENTUKAN ANGIN MUSON</div>
+      <h2>Geser Bulan, Amati Perubahan Suhu, Tekanan, dan Arah Angin</h2>
+      <p>Gerakkan slider bulan untuk melihat bagaimana gerak semu tahunan Matahari berkaitan dengan perbedaan pemanasan Asia–Australia dan pola angin yang melewati Indonesia.</p>
+    </div>
+
+    <div class="wind-layout">
+      <div class="card wind-map-card">
+        <div class="wind-map-stage">
+          <img id="indonesiaMap" alt="Peta Indonesia">
+          <div class="wind-map-fallback" id="mapPh">
+            <div><b>🗺️ Slot Peta Indonesia</b><br><small>Isi melalui ASSETS.indonesiaMapImage</small></div>
+          </div>
+
+          <div class="temperature-zone asia-zone cool-zone" id="asiaTemperature"></div>
+          <div class="temperature-zone australia-zone hot-zone" id="australiaTemperature"></div>
+
+          <svg class="wind-svg" id="windSvg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="windArrow" viewBox="0 0 10 10" refX="8" refY="5"
+                      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255,255,255,.92)"></path>
+              </marker>
+            </defs>
+
+            <!-- Muson Barat: kiri atas menuju kanan bawah -->
+            <g id="windGroupWest" class="wind-group">
+              <path id="westPath1" class="wind-flow" marker-end="url(#windArrow)"
+                d="M 60 80 C 260 120, 300 250, 480 235 C 690 215, 760 400, 940 390 C 1180 375, 1300 625, 1560 810"></path>
+              <path id="westPath2" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 25 190 C 250 220, 330 350, 510 325 C 720 295, 830 500, 1040 480 C 1260 455, 1390 680, 1585 835"></path>
+              <path id="westPath3" class="wind-flow" marker-end="url(#windArrow)"
+                d="M 160 25 C 370 85, 420 190, 620 175 C 820 160, 925 340, 1110 330 C 1320 315, 1435 540, 1590 690"></path>
+              <path id="westPath4" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 0 310 C 210 330, 305 430, 500 430 C 720 430, 840 600, 1030 595 C 1250 590, 1390 735, 1600 875"></path>
+              <path id="westPath5" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 250 0 C 430 90, 520 135, 700 140 C 910 150, 1000 265, 1190 285 C 1380 305, 1490 450, 1600 560"></path>
+
+              <circle class="wind-dot" r="7"><animateMotion dur="5.2s" repeatCount="indefinite"><mpath href="#westPath1"/></animateMotion></circle>
+              <circle class="wind-dot" r="6"><animateMotion dur="6.1s" begin="-2s" repeatCount="indefinite"><mpath href="#westPath2"/></animateMotion></circle>
+              <circle class="wind-dot" r="6"><animateMotion dur="4.8s" begin="-1s" repeatCount="indefinite"><mpath href="#westPath3"/></animateMotion></circle>
+              <circle class="wind-dot" r="5"><animateMotion dur="6.5s" begin="-3s" repeatCount="indefinite"><mpath href="#westPath4"/></animateMotion></circle>
+              <circle class="wind-dot" r="5"><animateMotion dur="5.6s" begin="-4s" repeatCount="indefinite"><mpath href="#westPath5"/></animateMotion></circle>
+            </g>
+
+            <!-- Muson Timur: kanan bawah menuju kiri atas -->
+            <g id="windGroupEast" class="wind-group">
+              <path id="eastPath1" class="wind-flow" marker-end="url(#windArrow)"
+                d="M 1560 810 C 1300 625, 1180 375, 940 390 C 760 400, 690 215, 480 235 C 300 250, 260 120, 60 80"></path>
+              <path id="eastPath2" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 1585 835 C 1390 680, 1260 455, 1040 480 C 830 500, 720 295, 510 325 C 330 350, 250 220, 25 190"></path>
+              <path id="eastPath3" class="wind-flow" marker-end="url(#windArrow)"
+                d="M 1590 690 C 1435 540, 1320 315, 1110 330 C 925 340, 820 160, 620 175 C 420 190, 370 85, 160 25"></path>
+              <path id="eastPath4" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 1600 875 C 1390 735, 1250 590, 1030 595 C 840 600, 720 430, 500 430 C 305 430, 210 330, 0 310"></path>
+              <path id="eastPath5" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 1600 560 C 1490 450, 1380 305, 1190 285 C 1000 265, 910 150, 700 140 C 520 135, 430 90, 250 0"></path>
+
+              <circle class="wind-dot" r="7"><animateMotion dur="5.2s" repeatCount="indefinite"><mpath href="#eastPath1"/></animateMotion></circle>
+              <circle class="wind-dot" r="6"><animateMotion dur="6.1s" begin="-2s" repeatCount="indefinite"><mpath href="#eastPath2"/></animateMotion></circle>
+              <circle class="wind-dot" r="6"><animateMotion dur="4.8s" begin="-1s" repeatCount="indefinite"><mpath href="#eastPath3"/></animateMotion></circle>
+              <circle class="wind-dot" r="5"><animateMotion dur="6.5s" begin="-3s" repeatCount="indefinite"><mpath href="#eastPath4"/></animateMotion></circle>
+              <circle class="wind-dot" r="5"><animateMotion dur="5.6s" begin="-4s" repeatCount="indefinite"><mpath href="#eastPath5"/></animateMotion></circle>
+            </g>
+
+            <!-- Masa peralihan: aliran lebih lemah dan tidak seragam -->
+            <g id="windGroupTransition" class="wind-group transition-group">
+              <path id="transitionPath1" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 260 280 C 500 180, 720 330, 870 300 C 1050 270, 1190 400, 1370 335"></path>
+              <path id="transitionPath2" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 1350 570 C 1120 650, 940 520, 760 570 C 570 620, 430 500, 245 565"></path>
+              <path id="transitionPath3" class="wind-flow soft" marker-end="url(#windArrow)"
+                d="M 500 760 C 620 620, 770 675, 850 545 C 950 390, 1100 455, 1190 300"></path>
+              <circle class="wind-dot" r="5"><animateMotion dur="7s" repeatCount="indefinite"><mpath href="#transitionPath1"/></animateMotion></circle>
+              <circle class="wind-dot" r="5"><animateMotion dur="7.8s" begin="-2.5s" repeatCount="indefinite"><mpath href="#transitionPath2"/></animateMotion></circle>
+              <circle class="wind-dot" r="5"><animateMotion dur="8.2s" begin="-4s" repeatCount="indefinite"><mpath href="#transitionPath3"/></animateMotion></circle>
+            </g>
+          </svg>
+
+          <div class="wind-label asia">ASIA</div>
+          <div class="wind-label indonesia">INDONESIA</div>
+          <div class="wind-label australia">AUSTRALIA</div>
+          <div class="climate-badge asia-climate" id="asiaClimateBadge"></div>
+          <div class="climate-badge australia-climate" id="australiaClimateBadge"></div>
+        </div>
+
+        <div class="month-control">
+          <div class="month-control-head">
+            <b>🗓️ Variabel: Bulan dalam Setahun</b>
+            <span class="month-value" id="monthValue">Januari</span>
+          </div>
+          <input type="range" id="monthSlider" min="1" max="12" step="1" value="1" oninput="updateMonthSimulation(true)">
+          <div class="month-labels">
+            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>Mei</span><span>Jun</span>
+            <span>Jul</span><span>Agu</span><span>Sep</span><span>Okt</span><span>Nov</span><span>Des</span>
+          </div>
+          <div class="month-help">Geser slider. Perhatikan bagaimana wilayah yang relatif lebih panas, tekanan udara, dan arah aliran angin berubah.</div>
+        </div>
+      </div>
+
+      <div class="card wind-side">
+        <h3 id="windTitle">Januari • Muson Barat</h3>
+        <p id="windDescription">Amati hubungan antara gerak semu tahunan Matahari, pemanasan daratan, tekanan udara, dan arah angin.</p>
+
+        <div class="wind-status" id="windStatus">🌧️ Kondisi mengarah pada Muson Barat</div>
+
+        <div class="cause-chain">
+          <div class="cause-item"><b>☀️ Gerak semu Matahari</b><br><span id="sunPositionText"></span></div>
+          <div class="cause-item"><b>🌡️ Perbedaan pemanasan</b><br><span id="heatingText"></span></div>
+          <div class="cause-item"><b>🌀 Perbedaan tekanan</b><br><span id="pressureText"></span></div>
+          <div class="cause-item"><b>🌬️ Gerak udara</b><br><span id="airflowText"></span></div>
+        </div>
+
+        <div class="condition-grid">
+          <div class="condition-box"><h4>ASIA</h4><p id="asiaCondition"></p></div>
+          <div class="condition-box"><h4>AUSTRALIA</h4><p id="australiaCondition"></p></div>
+        </div>
+
+        <div class="wind-info-box" id="windInfoBox"></div>
+        <div class="wind-progress-box" id="windProgressBox">Pola utama diamati: 0 / 2</div>
+
+        <div class="wind-side-actions">
+          <button class="wind-explain-btn" onclick="openWindExplanation()">📖 Penjelasan</button>
+          <button class="wind-pause-btn" id="windPauseBtn" onclick="toggleWindPause()">⏸ Jeda Animasi</button>
+        </div>
+        <div class="wind-note">Model ini disederhanakan untuk pembelajaran. Awal, akhir, dan kekuatan muson dapat berbeda menurut wilayah dan kondisi atmosfer tiap tahun.</div>
+      </div>
+    </div>
+    <div class="wind-bottom-nav">
+  <button class="wind-bottom-btn back" onclick="openMaterial()">
+  ← Kembali ke Materi
+</button>
+
+  <button class="wind-bottom-btn next" onclick="tryOpenPractice()">
+  Lanjut ke Latihan Soal→
+</button>
+  </button>
+</div>
+  </div>
+</section>
+
+<!-- LATIHAN -->
+<section class="screen" id="practiceScreen" style="background:linear-gradient(135deg,#eef9fb,#dff2f5)">
+  <button class="home-btn" onclick="showScreen('activityScreen')">🏠</button>
+  <div class="shell"><div class="heading"><div class="kicker">LATIHAN PEMAHAMAN</div><h2>Sudah Paham Hubungan Angin dan Pelayaran?</h2><p>Jawab 10 soal singkat sebelum atau sesudah mencoba Lab Maya.</p></div><div class="practice-wrap"><div class="card practice-info"><div class="big">📝</div><strong id="practiceCounter">Soal 1 / 10</strong><p>Jawabanmu akan langsung diberi umpan balik.</p></div><div class="card practice-box"><div class="practice-progress"><div id="practiceBar"></div></div><div class="practice-topic" id="practiceTopic">KONSEP DASAR</div><h3 class="practice-question" id="practiceQuestion"></h3><div class="options" id="practiceOptions"></div><div class="practice-feedback" id="practiceFeedback">Pilih jawaban yang menurutmu paling tepat.</div><button class="practice-next" id="practiceNext" onclick="nextPractice()" disabled>Berikutnya →</button></div></div></div>
+</section>
+
+<section class="screen" id="practiceResult" style="background:linear-gradient(135deg,#eef9fb,#dff2f5)"><button class="home-btn" onclick="showScreen('activityScreen')">🏠</button><div class="card practice-result"><div class="tag">HASIL LATIHAN</div><div class="score" id="practiceScore">0</div><h3 id="practiceResultTitle">Latihan selesai!</h3><p id="practiceResultText"></p><div class="practice-result-actions"><button class="nav-btn back" onclick="restartPractice()">↻ Ulangi Latihan</button><button class="nav-btn next" onclick="showScreen('activityScreen')">Kembali ke Menu</button></div></div></section>
+
+<!-- LAB VARIABLE -->
+<section class="screen lab-screen" id="labScreen">
+  <button class="home-btn" onclick="showScreen('activityScreen')">🏠</button>
+  <div class="shell">
+    <div class="heading">
+      <div class="kicker">STRATEGI PELAYARAN</div>
+      <h2>Tentukan Strategi Pelayaranmu</h2>
+      <p>Rute ekspedisi adalah Jawa (barat) menuju Maluku (timur). Tentukan waktu keberangkatan dan jenis kapal, lalu amati kondisi muson yang terbentuk.</p>
+    </div>
+
+    <div class="lab-layout">
+      <div class="card lab-panel">
+        <h3>Variabel 1 • Waktu Keberangkatan</h3>
+        <p>Pilih periode keberangkatan. Sistem akan menentukan kondisi muson yang berkaitan dengan periode tersebut.</p>
+
+        <div class="choice-grid wind-lab-grid">
+          <button class="choice-card" id="departureWest" onclick="selectDeparture('west')">
+            <div class="mini-icon">🌧️</div>
+            <h4>Desember – Februari</h4>
+            <p>Berangkat pada periode akhir dan awal tahun. Amati pola angin yang terbentuk.</p>
+          </button>
+
+          <button class="choice-card" id="departureEast" onclick="selectDeparture('east')">
+            <div class="mini-icon">☀️</div>
+            <h4>Juni – Agustus</h4>
+            <p>Berangkat pada pertengahan tahun. Bandingkan kondisi anginnya dengan periode sebelumnya.</p>
+          </button>
+        </div>
+
+        <div class="lab-detected" id="labDetectedMuson">
+          Pilih waktu keberangkatan untuk mengetahui kondisi musonnya.
+        </div>
+      </div>
+
+      <div class="card lab-panel">
+        <h3>Variabel 2 • Jenis Kapal</h3>
+        <p>Pilih kapal berdasarkan ukuran, daya angkut, dan karakter pelayarannya.</p>
+        <div class="choice-grid ship-grid">
+          <button class="choice-card" id="shipJong" onclick="selectShip('jong')">
+            <img class="ship-choice-img" src="assets/foto/jong.png" alt="Jong Jawa">
+            <p>Kapal besar dengan kapasitas tinggi dan cocok untuk perjalanan jauh.</p>
+          </button>
+          <button class="choice-card" id="shipPadewakang" onclick="selectShip('padewakang')">
+            <img class="ship-choice-img" src="assets/foto/padewakang.png" alt="Padewakang">
+            <p>Kapal sedang yang lebih lincah untuk pelayaran antarpulau.</p>
+          </button>
+          <button class="choice-card" id="shipPencalang" onclick="selectShip('pencalang')">
+            <img class="ship-choice-img" src="assets/foto/pencalang.png" alt="Pencalang">
+            <p>Perahu kecil yang lebih sesuai untuk perairan dangkal dan jarak dekat.</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="lab-progress-text" id="scenarioProgressText">Hasil simulasi diamati: 0 / 6</div>
+    <div class="lab-action-bar">
+      <button class="lab-start-btn" id="startSimulationBtn" onclick="runSimulation()" disabled>Mulai Simulasi</button>
+      <button class="lab-extra-btn locked" id="summaryBtn" onclick="tryOpenSummary()" disabled>📚 Rangkuman Materi</button>
+      <button class="lab-extra-btn locked" id="reflectionBtn" onclick="tryOpenReflection()" disabled>✍️ Refleksi</button>
+    </div>
+  </div>
+</section>
+
+<!-- POPUP PENGANTAR LAB MAYA -->
+<div class="modal" id="labIntroModal">
+  <div class="modal-box lab-intro-box">
+    <div class="lab-intro-icon">🌬️</div>
+    <h2>Apa Itu Muson?</h2>
+    <p><b>Muson</b> adalah pola angin berskala luas yang berubah arah secara musiman karena perubahan pemanasan dan tekanan udara antara wilayah Asia dan Australia.</p>
+
+    <div class="modal-section">
+      <h3>Muson, Monsun, atau Monsoon?</h3>
+      <p><b>Monsoon</b> adalah istilah bahasa Inggris. Dalam informasi meteorologi Indonesia, kamu juga akan sering menemukan bentuk <b>monsun</b>. Pada media pembelajaran ini digunakan istilah <b>muson</b> agar konsisten dengan istilah yang sudah digunakan pada materi dan pembelajaran IPS di media ini.</p>
+    </div>
+
+    <div class="modal-highlight">
+      <b>Cara kerja Lab Maya:</b> kamu tidak memilih Muson Barat atau Muson Timur secara langsung. Kamu memilih <b>waktu keberangkatan</b>, lalu sistem menentukan kondisi muson yang berkaitan dengan periode tersebut.
+    </div>
+
+    <button class="lab-intro-start" onclick="closeLabIntro()">Saya Mengerti • Mulai Menentukan Strategi →</button>
+  </div>
+</div>
+
+<!-- RESULT -->
+<section class="screen result-screen" id="resultScreen">
+  <div class="result-output-shell">
+    <div class="result-observe">
+      Amati hasil strategi pelayaran yang telah kamu pilih. Apa yang terjadi pada ekspedisimu?
+    </div>
+
+    <div class="result-video-wrap">
+      <video id="resultVideo" autoplay loop muted playsinline></video>
+      <button class="result-video-control" id="resultVideoControl" onclick="toggleResultVideo()">
+  ⏸ Pause
+</button>
+      <div class="asset-placeholder" id="resultVideoPh">
+        <b>Video Hasil Simulasi</b>
+        <small>Isi result1Video–result6Video pada ASSETS.</small>
+      </div>
+    </div>
+
+    <div class="result-actions">
+      <button class="explain-btn" onclick="openResultExplanation()">📖 Penjelasan Hasil</button>
+      <button class="retry-btn" onclick="retrySimulation()">↻ Ulang Simulasi</button>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section class="screen" id="reflectionScreen" style="background:linear-gradient(135deg,#eef9fb,#dff2f5)">
+  <button class="home-btn" onclick="showScreen('labScreen')">🏠</button>
+  <div class="shell"><div class="heading"><div class="kicker">REFLEKSI</div><h2>Apa yang Kamu Pelajari dari Pelayaran Nusantara?</h2><p>Tulis jawabanmu di buku tulis masing-masing, kemudian kumpulkan jawabanmu ke guru untuk diperiksa.</p></div><div class="reflection-grid">
+
+  <div class="reflection-card">
+    <label>
+      1. Bagaimana waktu keberangkatan memengaruhi kondisi angin yang dihadapi pelaut?
+    </label>
+  </div>
+
+  <div class="reflection-card">
+    <label>
+      2. Mengapa jenis kapal yang berbeda dapat menghasilkan hasil pelayaran yang berbeda?
+    </label>
+  </div>
+
+  <div class="reflection-card">
+    <label>
+      3. Mengapa pelaut masa lalu perlu memahami pola angin muson sebelum melakukan perjalanan?
+    </label>
+  </div>
+
+  <div class="reflection-card">
+    <label>
+      4. Apa hubungan antara kondisi alam, teknologi kapal, dan strategi manusia dalam pelayaran?
+    </label>
+  </div>
+
+</div></div></div><div class="reflection-note">Refleksi tidak dinilai otomatis. Gunakan jawabanmu untuk diskusi bersama guru dan teman.</div></div>
+</section>
+
+<!-- MODAL INFO -->
+<div class="modal" id="infoModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('infoModal')">✕</button><div id="infoModalContent"></div></div></div>
+<div class="modal" id="windExplainModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('windExplainModal')">✕</button>
+    <h2>🌬️ Bagaimana Angin Muson Terbentuk?</h2>
+
+    <div class="modal-section">
+      <h3>1. Gerak semu tahunan Matahari</h3>
+      <p>Matahari tidak benar-benar bergerak mengelilingi Bumi. Karena kemiringan sumbu Bumi dan revolusi Bumi, posisi penyinaran Matahari tampak bergeser antara belahan utara dan selatan sepanjang tahun. Sekitar Juni penyinaran lebih dominan ke belahan utara, sedangkan sekitar Desember lebih dominan ke belahan selatan.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>2. Pemanasan Asia dan Australia tidak sama</h3>
+      <p>Daratan merespons pemanasan dan pendinginan lebih cepat dibanding lautan. Perubahan musim menyebabkan Asia dan Australia mengalami kondisi termal yang berbeda pada waktu yang berbeda.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>3. Terbentuk perbedaan tekanan udara</h3>
+      <p>Dalam model sederhana ini, wilayah daratan yang relatif lebih panas dikaitkan dengan tekanan udara permukaan yang relatif lebih rendah, sedangkan wilayah yang relatif lebih dingin dikaitkan dengan tekanan udara yang relatif lebih tinggi.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>4. Udara bergerak dari tekanan tinggi menuju tekanan rendah</h3>
+      <p>Perbedaan tekanan membuat massa udara bergerak. Karena Indonesia terletak di antara Asia dan Australia, wilayah Indonesia berada pada jalur sirkulasi musiman tersebut.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>5. Mengapa garis anginnya meliuk?</h3>
+      <p>Gerak udara tidak selalu berupa garis lurus. Rotasi Bumi menimbulkan efek Coriolis yang membelokkan gerak massa udara. Bentuk jalur pada simulasi dibuat melengkung untuk membantu memvisualisasikan perubahan arah tersebut secara sederhana.</p>
+    </div>
+
+    <div class="modal-section">
+      <h3>6. Muson Barat, Muson Timur, dan masa peralihan</h3>
+      <p><b>Muson Barat</b> dominan ketika Asia relatif lebih dingin dan bertekanan lebih tinggi, sedangkan Australia relatif lebih panas dan bertekanan lebih rendah. <b>Muson Timur</b> menunjukkan kondisi sebaliknya. Pada bulan-bulan peralihan, perbedaan tekanan sedang berubah sehingga arah angin lebih bervariasi.</p>
+    </div>
+
+    <div class="modal-highlight">
+      <b>Hubungannya dengan pelayaran:</b> kapal layar masa lalu sangat bergantung pada pola angin. Pelaut Nusantara perlu memahami musim, arah angin, rute, arus, kondisi laut, dan kemampuan kapal untuk memilih waktu keberangkatan serta strategi pelayaran.
+    </div>
+  </div>
+</div>
+<div class="modal" id="resultExplainModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('resultExplainModal')">✕</button>
+    <h2 id="resultExplainTitle">Penjelasan Hasil Simulasi</h2>
+
+    <div class="result-explain-grid">
+      <div class="result-explain-meta">
+        <div class="meta-box"><b>Waktu Keberangkatan</b><br><span id="resultExplainPeriod"></span></div>
+        <div class="meta-box"><b>Kondisi Muson</b><br><span id="resultExplainMuson"></span></div>
+        <div class="meta-box"><b>Jenis Kapal</b><br><span id="resultExplainShip"></span></div>
+      </div>
+
+      <div class="result-explain-block">
+        <h3>🔍 Apa yang Terjadi?</h3>
+        <p id="resultExplainWhat"></p>
+      </div>
+
+      <div class="result-explain-block">
+        <h3>🧠 Mengapa Hasilnya Seperti Ini?</h3>
+        <p id="resultExplainWhy"></p>
+      </div>
+
+      <div class="result-explain-block lesson">
+        <h3>💡 Pelajaran dari Simulasi</h3>
+        <p id="resultExplainLesson"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="summaryModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('summaryModal')">✕</button>
+    <h2>📚 Rangkuman Pengaruh Angin dalam Pelayaran Masa Lalu</h2>
+    <div class="summary-grid">
+      <div class="summary-card"><h3>1. Nusantara sebagai ruang maritim</h3><p>Laut menghubungkan pulau, pelabuhan, pusat perdagangan, dan masyarakat di berbagai wilayah Nusantara.</p></div>
+      <div class="summary-card"><h3>2. Kapal layar bergantung pada lingkungan</h3><p>Sebelum mesin modern, angin menjadi salah satu sumber tenaga utama kapal. Arah dan musim angin memengaruhi pilihan waktu serta rute pelayaran.</p></div>
+      <div class="summary-card"><h3>3. Gerak semu tahunan Matahari</h3><p>Perubahan posisi penyinaran Matahari sepanjang tahun berkaitan dengan pergantian musim dan perbedaan pemanasan Asia–Australia.</p></div>
+      <div class="summary-card"><h3>4. Suhu dan tekanan udara</h3><p>Perbedaan pemanasan daratan menimbulkan perbedaan tekanan udara. Udara bergerak dari daerah bertekanan lebih tinggi menuju daerah bertekanan lebih rendah.</p></div>
+      <div class="summary-card"><h3>5. Angin Muson Barat</h3><p>Ketika Asia relatif lebih dingin/bertekanan tinggi dan Australia lebih panas/bertekanan rendah, aliran udara secara umum bergerak dari Asia menuju Australia dan melewati Indonesia.</p></div>
+      <div class="summary-card"><h3>6. Angin Muson Timur</h3><p>Ketika Australia relatif lebih dingin/bertekanan tinggi dan Asia lebih panas/bertekanan rendah, pola aliran udara secara umum berbalik.</p></div>
+      <div class="summary-card"><h3>7. Masa peralihan</h3><p>Pada masa pancaroba, pola tekanan sedang berubah. Arah dan kekuatan angin dapat lebih bervariasi dibanding periode muson utama.</p></div>
+      <div class="summary-card"><h3>8. Kapal memiliki kemampuan berbeda</h3><p>Jong Jawa, Padewakang, dan Pencalang memiliki ukuran, kapasitas, dan karakter pelayaran berbeda sehingga tidak semua kondisi menghasilkan hasil yang sama.</p></div>
+      <div class="summary-card"><h3>9. Geografi membantu mengambil keputusan</h3><p>Pelaut memanfaatkan pengetahuan tentang musim, angin, letak pulau, rute, kondisi laut, dan kemampuan kapal untuk menyusun strategi.</p></div>
+      <div class="summary-card"><h3>10. Adaptasi manusia</h3><p>Pelayaran menunjukkan bagaimana manusia memahami lingkungan lalu menyesuaikan teknologi dan perilakunya agar tujuan ekonomi dan sosial dapat tercapai.</p></div>
+      <div class="summary-card wide"><h3>Kesimpulan Utama</h3><p>Keberhasilan pelaut Nusantara tidak hanya bergantung pada keberanian. Pengetahuan geografis membantu mereka membaca perubahan alam, memilih waktu dan rute, serta menyesuaikan kapal dengan kondisi pelayaran. Simulasi ini menyederhanakan sistem atmosfer dan pelayaran agar hubungan sebab-akibatnya mudah diamati.</p></div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="glossaryModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('glossaryModal')">✕</button><h2>📖 Glosarium</h2><div class="glossary-grid" id="glossaryGrid"></div></div></div>
+<div class="modal" id="referenceModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('referenceModal')">✕</button><h2>🔗 Referensi</h2><div class="modal-section"><p><b>Supardi, Mohammad Rizky Satria, Sari Oktafiana, M. Nursa’ban. (2021).</b> <i>Ilmu Pengetahuan Sosial untuk SMP Kelas VIII.</i> Jakarta: Pusat Perbukuan Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi.</p></div><div class="modal-section"><p><b>Wallace, Alfred Russel. (2024).</b> <i>Sejarah Nusantara (The Malay Archipelago).</i> Bantul: Anak Hebat Indonesia</p></div><div class="ai-note"><h3>✨ Keterangan Penggunaan AI</h3><p>Media pembelajaran interaktif ini (termasuk didalamnya aset foto, video, dan segala ilustrasi visualnya) dikembangkan dengan bantuan teknologi kecerdasan buatan (Google Flow, Gemini, dan ChatGPT) dalam proses perancangan, pengembangan kode, dan pengembangan materi. Seluruh materi, tujuan pembelajaran, struktur pedagogis, serta hasil akhir ditinjau dan disesuaikan oleh pengembang.</p></div></div></div>
+<div class="modal" id="developerModal"><div class="modal-box"><button class="modal-close" onclick="closeModal('developerModal')">✕</button><h2>👥 Profil & Tim Pengembang</h2><div class="team-grid"><div class="team-group"><h3>Penanggung Jawab</h3><div class="person"><b>Dr. Maulani Mega Hapsari, S.IP, M.A.</b><span>Direktur SMP</span></div><div class="person"><b>Roelly Herdyanto, S.E., M.Si.</b><span>Kasubag Tata Usaha Direktorat SMP</span></div><div class="person"><b>Cepy Lukman Rusdiana, S.Kom., M.Si</b><span>Kasubdit Fasilitasi Sarana dan Prasarana Tatakelola Direktorat SMP</span></div><div class="person"><b>Hendro Sucipto, S.Kom</b><span>Pejabat Pembuat Komitmen Direktorat SMP</span></div></div><div class="team-group"><h3>Penyunting</h3><div class="person"><b>Dra. Nikensari, M.Ed.</b><span>Direktorat SMP</span></div><div class="person"><b>Didda Aisyah Maulida, M.Pd.</b><span>Direktorat SMP</span></div><div class="person"><b>Ainayya Alfatihah Putri S.Psi.</b><span>Direktorat SMP</span></div><div class="person"><b>Agus Riyanto, S.E</b><span>Direktorat SMP</span></div></div><div class="team-group"><h3>Reviewer</h3><div class="person"><b>Mushoddik, M.Pd.</b><span>Universitas Muhammadiyah Dr. Hamka</span></div><div class="person"><b>Nandi Kurniawan S.Pd, M.Si.</b><span>Universitas Negeri Jakarta</span></div></div></div><div class="developer-grid"><div class="developer-card"><div class="developer-photo"><img id="devJodi" alt="Foto Jodi"><div class="ph">📷<br>Foto Jodi</div></div><div><h3>Jodi Sadam Ibrahim</h3><p><b>Nama:</b> Jodi Sadam Ibrahim, S.Pd., Gr., MCE.</p><p><b>Instansi:</b> SMP Negeri 9 Kota Tangerang Selatan</p><p><b>Mata Pelajaran:</b> Ilmu Pengetahuan Sosial</p><p><b>Surel:</b> jodi.sadam35@guru.smp.belajar.id</p></div></div><div class="developer-card"><div class="developer-photo"><img id="devRestu" alt="Foto Restu"><div class="ph">📷<br>Foto Restu</div></div><div><h3>Hariana Restu Fadillah Rahmah</h3><p><b>Nama:</b> Hariana Restu Fadillah Rahmah S.Pd., Gr.</p><p><b>Instansi:</b> SMP Barunawati 2 Jakarta</p><p><b>Mata Pelajaran:</b> Ilmu Pengetahuan Sosial</p><p><b>Surel:</b> hariana.restu4@guru.smp.belajar.id</p></div></div></div><div class="modal-section"><h3>📘 Tentang Media</h3><p><b>Pengaruh Angin Dalam Pelayaran Masa Lalu</b> adalah media pembelajaran interaktif IPS Geografi Fase D yang mengajak murid memahami hubungan antara kondisi geografis, angin muson, teknologi kapal, perdagangan antarpulau, dan kemampuan manusia beradaptasi dengan lingkungan melalui simulasi konseptual.</p></div></div></div>
+
+</div>
+<script>
+const ASSETS={
+  coverBackground:"assets/foto/cover.png",
+  logo1:"",logo2:"",logo3:"",logo4:"",
+  material1:"assets/foto/materi1.jpg",material2:"assets/foto/materi2.jpg",material3:"assets/foto/materi3.jpg",material4:"assets/foto/materi4.jpg",material5:"assets/foto/materi5.jpg",material6:"assets/foto/materi6.jpg",material7:"assets/foto/materi7.jpg",material8:"assets/foto/materi8.jpg",material9:"assets/foto/materi9.jpg",material10:"assets/foto/materi10.jpg",material11:"assets/foto/materi11.jpg",material12:"assets/foto/materi12.jpg",material13:"assets/foto/materi13.jpg",material14:"",
+  indonesiaMapImage:"assets/foto/peta1.jpg",
+  result1Image:"",result2Image:"",result3Image:"",result4Image:"",result5Image:"",result6Image:"",
+  result1Video:"assets/video/hasil1.mp4",
+  result2Video:"assets/video/hasil2.mp4",
+  result3Video:"assets/video/hasil3.mp4",
+  result4Video:"assets/video/hasil4.mp4",
+  result5Video:"assets/video/hasil5.mp4",
+  result6Video:"assets/video/hasil6.mp4",
+  developerPhotoJodi:"assets/foto/jodi.png",developerPhotoRestu:"assets/foto/restu.png",
+
+  /* BACKGROUND FOTO PER SCREEN — ganti path di bawah sesuai file Anda */
+  screenBackgrounds:{
+    infoScreen:"assets/foto/bg.jpg",
+    videoScreen:"assets/foto/bg.jpg",
+    activityScreen:"assets/foto/bg.jpg",
+    materialScreen:"assets/foto/bg.jpg",
+    windScreen:"assets/foto/bg.jpg",
+    practiceScreen:"assets/foto/bg.jpg",
+    practiceResult:"assets/foto/bg.jpg",
+    labScreen:"assets/foto/bg.jpg",
+    resultScreen:"assets/foto/bg.jpg",
+    reflectionScreen:"assets/foto/bg.jpg"
+  }
+};
+const STORAGE_KEY="pelayaran_angin_progress_v1";
+const el=id=>document.getElementById(id);
+const state={
+  info:{goal:false,guide:false},materialIndex:0,materialComplete:false,
+  windViewed:[],windCurrent:null,windPaused:false,windMonth:1,
+  practiceIndex:0,practiceScore:0,practiceAnswered:false,practiceResults:[],practiceComplete:false,
+  labDeparture:null,labWind:null,ship:null,scenariosViewed:[],currentScenario:null,labIntroSeen:false
+};
+const MATERIALS=[
+  {
+    title:"Nusantara sebagai Ruang Maritim",
+    subtitle:"Laut menghubungkan masyarakat antarpulau.",
+    html:`<h3>Laut sebagai penghubung</h3>
+    <p>Indonesia terdiri atas banyak pulau yang dipisahkan sekaligus dihubungkan oleh laut.</p>
+    <p>Sejak masa lalu, masyarakat menggunakan laut untuk berpindah, berkomunikasi, dan berhubungan dengan wilayah lain.</p>
+    <p>Karena itu, pelayaran menjadi bagian penting dalam kehidupan masyarakat Nusantara.</p>
+    <p>Laut tidak hanya menjadi pemisah, tetapi juga menjadi jalur penghubung antarpulau.</p>
+    <div class="material-note">Dari hubungan antarpulau inilah kegiatan perdagangan laut kemudian berkembang.</div>`
+  },
+  {
+    title:"Pelayaran dan Perdagangan",
+    subtitle:"Jalur laut mendukung pertukaran barang antardaerah.",
+    html:`<h3>Perdagangan melalui laut</h3>
+    <p>Melalui pelayaran, masyarakat membawa berbagai barang dari satu wilayah ke wilayah lain.</p>
+    <p>Barang yang diperdagangkan antara lain beras, kain, hasil hutan, cengkih, pala, dan lada.</p>
+    <p>Maluku dikenal sebagai salah satu wilayah penting penghasil rempah-rempah.</p>
+    <p>Perdagangan laut membuat pelabuhan-pelabuhan di Nusantara semakin saling terhubung.</p>
+    <div class="material-note">Untuk menempuh perjalanan tersebut, masyarakat membutuhkan kapal yang mampu bergerak melintasi laut.</div>`
+  },
+  {
+    title:"Kapal Layar Memanfaatkan Angin",
+    subtitle:"Angin membantu kapal bergerak menuju tujuan.",
+    html:`<h3>Angin sebagai tenaga pelayaran</h3>
+    <p>Kapal tradisional memanfaatkan layar untuk menangkap dorongan angin agar dapat bergerak di laut.</p>
+    <p>Jika arah angin sesuai dengan tujuan pelayaran, perjalanan menjadi lebih mudah dan efisien.</p>
+    <p>Sebaliknya, jika arah angin berlawanan, pelaut perlu menyesuaikan waktu keberangkatan atau strategi perjalanan.</p>
+    <div class="material-note">Namun arah angin tidak selalu sama sepanjang tahun, sehingga kita perlu memahami mengapa pola angin dapat berubah.</div>`
+  },
+  {
+    title:"Mengapa Arah Angin Berubah?",
+    subtitle:"Pola angin tidak selalu sama sepanjang tahun.",
+    html:`<h3>Angin berubah mengikuti musim</h3>
+    <p>Pelaut dapat mengalami arah angin yang berbeda ketika berlayar pada bulan yang berbeda.</p>
+    <p>Perubahan ini tidak terjadi secara acak, tetapi berkaitan dengan perubahan pemanasan permukaan Bumi.</p>
+    <p>Asia dan Australia tidak selalu menerima pemanasan yang sama sepanjang tahun.</p>
+    <p>Ketika kondisi pemanasan berubah, pola tekanan udara dan arah angin juga dapat berubah.</p>
+    <div class="material-note">Untuk memahami penyebabnya, kita perlu melihat perubahan penyinaran Matahari sepanjang tahun.</div>`
+  },
+  {
+    title:"Gerak Semu Tahunan Matahari",
+    subtitle:"Penyinaran Matahari berubah sepanjang tahun.",
+    html:`<h3>Pemanasan Bumi tidak selalu sama</h3>
+    <p>Bumi bergerak mengelilingi Matahari dan memiliki sumbu yang miring.</p>
+    <p>Akibatnya, posisi penyinaran Matahari tampak bergeser ke utara dan selatan sepanjang tahun.</p>
+    <p>Peristiwa ini disebut gerak semu tahunan Matahari.</p>
+    <p>Perubahan penyinaran membuat wilayah di permukaan Bumi menerima pemanasan yang berbeda pada waktu yang berbeda.</p>
+    <div class="material-note">Perbedaan inilah yang kemudian memengaruhi kondisi Asia dan Australia.</div>`
+  },
+  {
+    title:"Pemanasan Asia dan Australia",
+    subtitle:"Kedua wilayah mengalami kondisi panas dan sejuk secara bergantian.",
+    html:`<h3>Perbedaan suhu mulai terbentuk</h3>
+    <p>Asia sebagian besar berada di belahan Bumi utara, sedangkan Australia berada di belahan Bumi selatan.</p>
+    <p>Ketika salah satu wilayah menerima pemanasan lebih kuat, wilayah lainnya dapat berada pada kondisi relatif lebih sejuk.</p>
+    <p>Karena itu, kondisi panas dan dingin Asia serta Australia dapat bergantian sepanjang tahun.</p>
+    <p>Dalam simulasi, wilayah yang lebih panas ditandai warna oranye dan wilayah yang lebih dingin ditandai warna biru.</p>
+    <div class="material-note">Perbedaan suhu ini kemudian memengaruhi tekanan udara di kedua wilayah.</div>`
+  },
+  {
+    title:"Suhu dan Tekanan Udara",
+    subtitle:"Perbedaan suhu menimbulkan perbedaan tekanan.",
+    html:`<h3>Dari suhu menuju tekanan</h3>
+    <p>Perbedaan suhu antara Asia dan Australia dapat menimbulkan perbedaan tekanan udara.</p>
+    <p>Dalam model sederhana, wilayah yang lebih panas memiliki tekanan udara relatif lebih rendah.</p>
+    <p>Sebaliknya, wilayah yang lebih dingin memiliki tekanan udara relatif lebih tinggi.</p>
+    <p>Perbedaan tekanan membuat udara tidak berada dalam kondisi seimbang.</p>
+    <div class="material-note">Akibatnya, massa udara mulai bergerak dari satu wilayah ke wilayah lainnya.</div>`
+  },
+  {
+    title:"Udara Bergerak Menjadi Angin",
+    subtitle:"Udara bergerak dari tekanan tinggi ke tekanan rendah.",
+    html:`<h3>Perbedaan tekanan menggerakkan udara</h3>
+    <p>Udara cenderung bergerak dari wilayah bertekanan tinggi menuju wilayah bertekanan rendah.</p>
+    <p>Gerakan udara inilah yang kita rasakan sebagai angin.</p>
+    <p>Pada skala luas, arah angin juga dipengaruhi oleh rotasi Bumi.</p>
+    <p>Karena itu, jalur angin tidak selalu bergerak lurus dari satu wilayah ke wilayah lain.</p>
+    <div class="material-note">Ketika pola tekanan berubah sepanjang tahun, arah angin antara Asia dan Australia juga ikut berubah.</div>`
+  },
+  {
+    title:"Mengenal Angin Muson",
+    subtitle:"Muson adalah pola angin yang berubah secara musiman.",
+    html:`<h3>Angin berubah mengikuti musim</h3>
+    <p>Perubahan arah angin antara Asia dan Australia terjadi secara musiman.</p>
+    <p>Pola angin musiman ini dikenal sebagai angin muson.</p>
+    <p>Angin muson terbentuk karena perubahan pemanasan dan tekanan udara antara kedua wilayah.</p>
+    <p>Di Indonesia, dua pola utama yang sering dipelajari adalah Muson Barat dan Muson Timur.</p>
+    <div class="material-note">Kedua pola tersebut memiliki arah angin dan pengaruh yang berbeda terhadap kondisi Indonesia.</div>`
+  },
+  {
+    title:"Angin Muson Barat",
+    subtitle:"Udara bergerak dari Asia menuju Australia.",
+    html:`<h3>Asia lebih dingin, Australia lebih hangat</h3>
+    <p>Pada Muson Barat, Asia secara umum berada pada kondisi relatif lebih dingin dan bertekanan lebih tinggi.</p>
+    <p>Australia berada pada kondisi relatif lebih hangat dan bertekanan lebih rendah.</p>
+    <p>Akibatnya, udara bergerak dari Asia menuju Australia melewati Indonesia.</p>
+    <p>Angin ini banyak membawa uap air sehingga sering berkaitan dengan musim hujan di berbagai wilayah Indonesia.</p>
+    <div class="material-note"><b>Dalam Lab Maya:</b> Muson Barat disederhanakan sebagai kondisi yang lebih mendukung rute Jawa menuju Maluku.</div>`
+  },
+  {
+    title:"Angin Muson Timur",
+    subtitle:"Udara bergerak dari Australia menuju Asia.",
+    html:`<h3>Australia lebih dingin, Asia lebih hangat</h3>
+    <p>Pada Muson Timur, Australia secara umum berada pada kondisi relatif lebih dingin dan bertekanan lebih tinggi.</p>
+    <p>Asia berada pada kondisi relatif lebih hangat dan bertekanan lebih rendah.</p>
+    <p>Akibatnya, udara bergerak dari Australia menuju Asia melewati Indonesia.</p>
+    <p>Karena berasal dari wilayah yang lebih kering, pola ini sering berkaitan dengan musim kemarau.</p>
+    <div class="material-note"><b>Dalam Lab Maya:</b> Muson Timur disederhanakan sebagai kondisi yang kurang mendukung rute Jawa menuju Maluku.</div>`
+  },
+  {
+    title:"Masa Peralihan",
+    subtitle:"Perubahan muson berlangsung secara bertahap.",
+    html:`<h3>Angin dapat lebih berubah-ubah</h3>
+    <p>Perubahan dari Muson Barat ke Muson Timur tidak terjadi secara tiba-tiba.</p>
+    <p>Di antara keduanya terdapat masa peralihan yang disebut pancaroba.</p>
+    <p>Pada masa ini, arah dan kekuatan angin dapat lebih bervariasi.</p>
+    <p>Kondisi cuaca juga dapat berubah lebih cepat dibanding pada periode muson utama.</p>
+    <div class="material-note">Karena itu, pelaut perlu memperhatikan bahwa kondisi angin dapat berubah secara bertahap.</div>`
+  },
+  {
+    title:"Kapal yang Berbeda, Kemampuan yang Berbeda",
+    subtitle:"Jenis kapal harus sesuai dengan kondisi perjalanan.",
+    html:`<h3>Pilih kapal sesuai kebutuhan</h3>
+    <p>Setiap jenis kapal memiliki ukuran, daya angkut, dan kemampuan yang berbeda.</p>
+    <p>Jong Jawa direpresentasikan sebagai kapal besar dengan kapasitas tinggi untuk perjalanan jauh.</p>
+    <p>Padewakang berukuran sedang dan lebih lincah untuk pelayaran antarpulau.</p>
+    <p>Pencalang lebih kecil dan lebih sesuai untuk perairan dangkal atau perjalanan jarak dekat.</p>
+    <div class="material-note">Karena itu, pemilihan kapal harus disesuaikan dengan kondisi angin, jarak, dan rute pelayaran.</div>`
+  },
+  {
+    title:"Bekal Masuk Laboratorium Maya",
+    subtitle:"Hubungkan kondisi alam, angin, kapal, dan strategi.",
+    html:`<h3>Sekarang saatnya menguji pemahaman</h3>
+    <p>Pelayaran masa lalu dipengaruhi oleh hubungan antara kondisi alam, arah angin, dan kemampuan kapal.</p>
+    <p>Perubahan pemanasan Asia dan Australia membentuk perbedaan tekanan yang kemudian memengaruhi arah angin.</p>
+    <p>Pelaut perlu menyesuaikan jenis kapal dan waktu perjalanan dengan kondisi yang sedang terjadi.</p>
+    <p>Dalam Lab Maya, kamu akan menguji rute Jawa menuju Maluku dengan beberapa kombinasi angin dan kapal.</p>
+    <div class="material-note">Gunakan pengetahuan yang telah dipelajari untuk menganalisis mengapa suatu pelayaran dapat berhasil atau mengalami hambatan.</div>`
+  }
+];
+
+const PRACTICE=[
+  {topic:"Ruang Maritim",q:"Mengapa laut penting bagi masyarakat Nusantara sejak masa lalu?",opts:["Menjadi penghalang hubungan antarpulau","Menjadi jalur penghubung, pelayaran, dan perdagangan","Hanya digunakan untuk menangkap ikan","Tidak memiliki hubungan dengan ekonomi"],a:1,exp:"Laut menghubungkan pulau-pulau dan mendukung mobilitas, perdagangan, serta pertukaran budaya."},
+  {topic:"Gerak Semu Matahari",q:"Mengapa posisi penyinaran Matahari tampak bergeser ke utara dan selatan sepanjang tahun?",opts:["Karena Matahari mengelilingi Bumi setiap tahun","Karena revolusi Bumi dan kemiringan sumbu Bumi","Karena bentuk benua berubah","Karena angin mendorong Matahari"],a:1,exp:"Gerak semu tahunan berkaitan dengan revolusi Bumi dan kemiringan sumbu Bumi."},
+  {topic:"Tekanan Udara",q:"Dalam model sederhana media ini, udara cenderung bergerak dari...",opts:["Tekanan rendah ke tekanan tinggi","Tekanan tinggi ke tekanan rendah","Wilayah panas ke semua arah tanpa pola","Laut ke darat setiap saat"],a:1,exp:"Perbedaan tekanan menggerakkan massa udara dari tekanan relatif lebih tinggi menuju tekanan relatif lebih rendah."},
+  {topic:"Muson Barat",q:"Pada kondisi Muson Barat dalam simulasi, wilayah mana yang relatif lebih dingin dan bertekanan lebih tinggi?",opts:["Asia","Australia","Indonesia saja","Semua wilayah sama"],a:0,exp:"Dalam model Muson Barat, Asia relatif lebih dingin/bertekanan tinggi dan Australia relatif lebih panas/bertekanan rendah."},
+  {topic:"Muson Timur",q:"Pada kondisi Muson Timur dalam simulasi, arah umum aliran udara bergerak dari...",opts:["Australia menuju Asia","Asia menuju Australia","Indonesia menuju kedua benua sekaligus","Tidak ada gerakan udara"],a:0,exp:"Muson Timur secara umum dikaitkan dengan aliran dari Australia menuju Asia melewati Indonesia."},
+  {topic:"Pancaroba",q:"Mengapa arah angin pada masa peralihan dapat lebih bervariasi?",opts:["Karena Bumi berhenti berotasi","Karena pola tekanan sedang berubah dari satu muson ke muson lainnya","Karena laut menghilang","Karena kapal memengaruhi atmosfer"],a:1,exp:"Pada masa peralihan, pola tekanan dan sirkulasi sedang berganti sehingga arah angin dapat lebih berubah-ubah."},
+  {topic:"Jenis Kapal",q:"Kapal mana yang direpresentasikan memiliki kapasitas muatan paling besar?",opts:["Pencalang","Padewakang","Jong Jawa","Semua sama"],a:2,exp:"Jong Jawa direpresentasikan sebagai kapal besar dengan kapasitas muatan tinggi."},
+  {topic:"Jenis Kapal",q:"Pencalang lebih sesuai digunakan pada kondisi...",opts:["Perairan dangkal dan jarak dekat","Samudra bergelombang besar","Perjalanan jauh dengan muatan sangat berat","Semua kondisi tanpa batas"],a:0,exp:"Pencalang lebih sesuai untuk perairan dangkal/tenang dan perjalanan jarak dekat."},
+  {topic:"Geografi & Adaptasi",q:"Bagaimana pengetahuan geografi membantu pelaut masa lalu?",opts:["Hanya menentukan warna kapal","Membantu membaca musim, angin, rute, dan kondisi lingkungan","Menghilangkan risiko pelayaran sepenuhnya","Membuat semua kapal memiliki kemampuan sama"],a:1,exp:"Pelaut menggunakan pengetahuan lingkungan untuk menentukan waktu, rute, dan strategi perjalanan."},
+  {topic:"Kesimpulan",q:"Apa gagasan utama laboratorium maya ini?",opts:["Keberhasilan pelaut hanya bergantung pada keberanian","Angin tidak berkaitan dengan perdagangan","Keberhasilan pelayaran dipengaruhi interaksi kondisi alam, teknologi kapal, dan strategi manusia","Semua kapal akan berhasil pada semua musim"],a:2,exp:"Pelayaran merupakan contoh hubungan antara proses geografis, teknologi, dan kemampuan manusia beradaptasi."}
+];
+const SCENARIOS={
+  "west-jong":{
+    id:1,video:"result1Video",
+    status:"EKSPEDISI SANGAT MENDUKUNG",
+    title:"Perjalanan Berlangsung Efektif",
+    period:"Desember–Februari",muson:"Muson Barat",shipName:"Jong Jawa",
+    what:"Jong Jawa dapat bergerak menuju Maluku dengan lebih lancar. Layar memperoleh dorongan angin yang relatif mendukung arah perjalanan. Ukuran kapal yang besar juga memungkinkan awak membawa muatan perdagangan dalam jumlah lebih banyak untuk perjalanan antarpulau.",
+    why:"Dalam model Lab Maya ini, keberangkatan pada Desember–Februari dikaitkan dengan kondisi Muson Barat. Pola angin tersebut disederhanakan sebagai kondisi yang lebih mendukung perjalanan dari Jawa menuju Maluku. Jong Jawa direpresentasikan sebagai kapal besar yang sesuai untuk pelayaran jarak jauh dan memiliki kapasitas muatan tinggi. Karena waktu keberangkatan, arah angin, tujuan pelayaran, dan kemampuan kapal saling mendukung, perjalanan menjadi lebih efektif.",
+    lesson:"Keberhasilan pelayaran tidak hanya ditentukan oleh kapalnya. Waktu keberangkatan dan kondisi lingkungan perlu sesuai dengan tujuan perjalanan."
+  },
+  "west-padewakang":{
+    id:2,video:"result2Video",
+    status:"EKSPEDISI BERHASIL",
+    title:"Pelayaran Berlangsung Cukup Baik",
+    period:"Desember–Februari",muson:"Muson Barat",shipName:"Padewakang",
+    what:"Padewakang dapat melanjutkan perjalanan menuju Maluku dengan cukup baik. Kapal lebih lincah ketika menyesuaikan posisi layar dan arah pelayaran. Namun kapasitas muatannya lebih terbatas dibandingkan Jong Jawa.",
+    why:"Pada Desember–Februari, kondisi Muson Barat dalam model lebih mendukung perjalanan menuju timur. Padewakang direpresentasikan sebagai kapal berukuran sedang dengan kemampuan manuver yang baik. Arah angin yang mendukung membantu perjalanan, sedangkan kelincahan kapal memudahkan awak melakukan penyesuaian. Karena ukurannya lebih kecil daripada Jong Jawa, jumlah muatan yang dapat dibawa juga lebih terbatas.",
+    lesson:"Kapal yang lincah dapat memanfaatkan kondisi angin yang mendukung dengan baik, tetapi ukuran dan kapasitas kapal tetap memengaruhi skala perjalanan."
+  },
+  "west-pencalang":{
+    id:3,video:"result3Video",
+    status:"PERJALANAN BERISIKO",
+    title:"Angin Mendukung, Kapal Kurang Sesuai",
+    period:"Desember–Februari",muson:"Muson Barat",shipName:"Pencalang",
+    what:"Pencalang tetap mendapatkan dorongan angin menuju arah perjalanan. Namun ketika perjalanan memasuki perairan yang lebih terbuka, kapal kecil ini lebih mudah dipengaruhi gelombang dan perubahan kondisi laut sehingga perjalanan menjadi lebih berisiko.",
+    why:"Muson Barat dalam model memang membantu arah perjalanan Jawa menuju Maluku. Akan tetapi, keberhasilan pelayaran tidak hanya dipengaruhi angin. Pencalang direpresentasikan sebagai kapal kecil yang lebih sesuai untuk perjalanan jarak dekat dan perairan yang relatif terlindung. Ketika digunakan untuk ekspedisi jauh menuju Maluku, ukuran dan karakter kapal menjadi faktor pembatas meskipun arah anginnya mendukung.",
+    lesson:"Angin yang sesuai belum tentu membuat perjalanan aman apabila jenis kapal tidak sesuai dengan jarak dan karakter perairan yang dilalui."
+  },
+  "east-jong":{
+    id:4,video:"result4Video",
+    status:"PERJALANAN TIDAK EFISIEN",
+    title:"Kapal Kuat, Angin Kurang Mendukung",
+    period:"Juni–Agustus",muson:"Muson Timur",shipName:"Jong Jawa",
+    what:"Jong Jawa masih dapat melakukan perjalanan, tetapi pelayarannya menjadi kurang efisien. Awak kapal perlu lebih banyak menyesuaikan layar dan strategi perjalanan agar kapal tetap bergerak menuju Maluku.",
+    why:"Dalam model Lab Maya, keberangkatan pada Juni–Agustus dikaitkan dengan Muson Timur yang cenderung kurang mendukung perjalanan Jawa menuju Maluku. Jong Jawa memang besar dan sesuai untuk pelayaran jauh, tetapi kapal layar tetap sangat dipengaruhi kondisi angin. Kapal yang besar juga membutuhkan pengaturan layar dan manuver yang lebih besar ketika arah angin tidak sesuai dengan tujuan.",
+    lesson:"Kapal yang besar dan kuat tetap membutuhkan kondisi angin serta waktu keberangkatan yang sesuai agar perjalanan berlangsung efisien."
+  },
+  "east-padewakang":{
+    id:5,video:"result5Video",
+    status:"PERJALANAN LEBIH LAMBAT",
+    title:"Masih Dapat Berlayar dengan Penyesuaian",
+    period:"Juni–Agustus",muson:"Muson Timur",shipName:"Padewakang",
+    what:"Padewakang masih dapat bergerak menuju Maluku, tetapi perjalanannya menjadi lebih lambat dan tidak seefisien ketika angin mendukung. Awak kapal perlu lebih sering menyesuaikan posisi layar dan arah perjalanan.",
+    why:"Muson Timur dalam model kurang sejalan dengan tujuan pelayaran menuju timur. Namun Padewakang direpresentasikan memiliki kemampuan manuver yang lebih baik dibandingkan kapal yang lebih besar. Awak masih dapat menyesuaikan layar dan arah kapal untuk mempertahankan perjalanan. Konsekuensinya, rute menjadi kurang langsung dan waktu tempuh menjadi lebih lama.",
+    lesson:"Kemampuan manuver kapal dapat membantu menghadapi kondisi angin yang kurang ideal, tetapi tidak dapat menghilangkan seluruh pengaruh lingkungan."
+  },
+  "east-pencalang":{
+    id:6,video:"result6Video",
+    status:"RISIKO SANGAT TINGGI",
+    title:"Waktu dan Kapal Sama-Sama Kurang Mendukung",
+    period:"Juni–Agustus",muson:"Muson Timur",shipName:"Pencalang",
+    what:"Pencalang mengalami kesulitan paling besar untuk mempertahankan perjalanan menuju Maluku. Kapal bergerak lebih lambat dan lebih mudah keluar dari arah perjalanan ketika menghadapi kondisi angin yang kurang mendukung.",
+    why:"Pada kombinasi ini terdapat dua faktor yang sama-sama kurang mendukung. Pertama, Muson Timur dalam model tidak sejalan dengan arah perjalanan Jawa menuju Maluku. Kedua, Pencalang merupakan kapal kecil yang lebih sesuai untuk perjalanan jarak dekat dan perairan yang relatif terlindung. Ketika digunakan untuk pelayaran jauh, pengaruh angin dan kondisi laut terhadap kapal menjadi lebih besar sehingga tingkat risikonya meningkat.",
+    lesson:"Waktu keberangkatan dan jenis kapal harus dipertimbangkan bersama. Kondisi angin yang kurang mendukung menjadi semakin berisiko ketika kapal juga tidak sesuai dengan karakter perjalanan."
+  }
+}
+const GLOSSARY={
+  "Adaptasi":"Penyesuaian manusia terhadap kondisi lingkungan.",
+  "Angin Muson":"Pola angin musiman yang berubah arah secara periodik karena perubahan pola tekanan udara skala luas.",
+  "Armada":"Sekumpulan kapal yang melakukan perjalanan bersama.",
+  "Coriolis":"Efek semu akibat rotasi Bumi yang membelokkan gerak massa udara dan air pada skala luas.",
+  "Dermaga":"Tempat kapal bersandar untuk menaikkan atau menurunkan orang dan barang.",
+  "Ekspedisi":"Perjalanan yang dilakukan untuk tujuan tertentu.",
+  "Geografi":"Ilmu yang mempelajari ruang, lingkungan, serta hubungan manusia dengan kondisi di permukaan bumi.",
+  "Gerak Semu Tahunan Matahari":"Perubahan posisi tampak penyinaran Matahari ke utara dan selatan sepanjang tahun akibat revolusi Bumi dan kemiringan sumbu Bumi.",
+  "Jong Jawa":"Kapal besar dalam simulasi yang memiliki lambung tebal dan kapasitas muatan tinggi.",
+  "Lambung":"Badan utama kapal yang berada di atas dan di dalam air.",
+  "Nakhoda":"Pemimpin atau kapten kapal.",
+  "Niaga":"Kegiatan perdagangan.",
+  "Padewakang":"Kapal tradisional berukuran sedang yang dalam simulasi direpresentasikan menggunakan layar tanja dan lambung berbentuk V.",
+  "Pancaroba":"Masa peralihan dari satu pola musim atau muson ke pola berikutnya.",
+  "Pencalang":"Perahu kecil dan ramping yang dalam simulasi lebih sesuai untuk perairan dangkal atau perjalanan jarak dekat.",
+  "Rempah-rempah":"Komoditas seperti cengkih, pala, dan lada yang bernilai tinggi dalam perdagangan masa lalu.",
+  "Rute":"Jalur perjalanan dari tempat asal menuju tujuan.",
+  "Tekanan Udara":"Gaya yang diberikan oleh massa udara pada suatu permukaan.",
+  "Tanja":"Jenis layar tradisional berbentuk miring yang digunakan pada sejumlah kapal Nusantara."
+};
+
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));const s=el(id);if(s){s.classList.add('active');window.scrollTo(0,0);}saveProgress();}
+
+function closeMaterialFinishPopup(){
+  el('materialFinishPopup').classList.remove('show');
+  showScreen('activityScreen');
+}
+
+function openModal(id){el(id)?.classList.add('show')}
+function closeModal(id){el(id)?.classList.remove('show')}
+document.addEventListener('click',e=>{if(e.target.classList?.contains('modal'))e.target.classList.remove('show')});
+
+function applyAssets(){
+  if(ASSETS.coverBackground)el('coverScreen').style.backgroundImage=`linear-gradient(180deg,rgba(0,30,50,.18),rgba(0,25,40,.0)),url('${ASSETS.coverBackground}')`;
+  ['logo1','logo2','logo3','logo4'].forEach(id=>{if(ASSETS[id]){const n=el(id);n.src=ASSETS[id];n.classList.remove('hidden')}});
+  if(ASSETS.introVideo)el('introVideo').src=ASSETS.introVideo;
+  if(ASSETS.introThumbnail)el('videoPoster').style.backgroundImage=`linear-gradient(180deg,rgba(0,28,45,.15),rgba(2,24,40,.72)),url('${ASSETS.introThumbnail}')`;
+  if(ASSETS.indonesiaMapImage){el('indonesiaMap').src=ASSETS.indonesiaMapImage;el('indonesiaMap').style.display='block';el('mapPh').style.display='none'}
+  if(ASSETS.developerPhotoJodi){el('devJodi').src=ASSETS.developerPhotoJodi;el('devJodi').style.display='block';el('devJodi').nextElementSibling.style.display='none'}
+  if(ASSETS.developerPhotoRestu){el('devRestu').src=ASSETS.developerPhotoRestu;el('devRestu').style.display='block';el('devRestu').nextElementSibling.style.display='none'}
+
+  /* Terapkan foto background tanpa mengubah struktur/layout screen */
+  Object.entries(ASSETS.screenBackgrounds||{}).forEach(([screenId,src])=>{
+    const screen=el(screenId);
+    if(screen && src){
+      screen.classList.add('photo-bg');
+      screen.style.setProperty('--screen-photo',`url(\"${src}\")`);
+    }
+  });
+}
+
+function openInfo(type){
+  let html='';
+  if(type==='goal')html=`<h2>🎯 Tujuan Praktikum</h2><p>Melalui simulasi interaktif pada laboratorium maya, Murid dapat menganalisis pengaruh sistem Angin Muson Barat dan Muson Timur terhadap rute serta waktu pelayaran niaga masa lalu secara tepat.</p>`;
+  else html=`<h2>🧭 Cara Penggunaan</h2><ol><li>Baca seluruh materi secara berurutan.</li><li>Buka Simulasi Pembentukan Angin Muson lalu geser slider bulan.</li><li>Amati perubahan warna panas–dingin Asia dan Australia, tekanan udara, serta arah anginnya.</li><li>Pastikan kamu sudah menemukan pola Muson Barat dan Muson Timur.</li><li>Kerjakan latihan pemahaman.</li><li>Pada Lab Maya, pilih waktu keberangkatan dan satu jenis kapal.</li><li>Jalankan simulasi dan ulangi sampai seluruh 6 kombinasi telah diamati.</li><li>Buka rangkuman dan isi refleksi.</li></ol><div class="modal-highlight"><b>Catatan:</b> simulasi ini menyederhanakan banyak faktor pelayaran agar hubungan antara angin, kapal, rute, dan adaptasi manusia dapat diamati dengan mudah.</div>`;
+  el('infoModalContent').innerHTML=html;state.info[type]=true;updateInfoGate();openModal('infoModal');saveProgress();
+}
+function updateInfoGate(){['goal','guide'].forEach(k=>el(k==='goal'?'goalInfoCard':'guideInfoCard').classList.toggle('read',state.info[k]));const ready=state.info.goal&&state.info.guide;el('infoContinueBtn').disabled=!ready;el('infoHint').textContent=ready?'✓ Informasi awal sudah dibaca. Silakan lanjut.':`Buka ${Number(state.info.goal)+Number(state.info.guide)}/2 kartu informasi untuk melanjutkan.`}
+
+function openMaterial(){state.materialIndex=Math.min(state.materialIndex,MATERIALS.length-1);renderMaterial();showScreen('materialScreen')}
+function renderMaterial(){const i=state.materialIndex,m=MATERIALS[i];  
+const materialLayout = document.querySelector('.material-layout');
+  const materialVisual = document.querySelector('.material-visual');
+
+  if(i === 13){
+    materialLayout.classList.add('material-fulltext');
+    materialVisual.style.display = 'none';
+  }else{
+    materialLayout.classList.remove('material-fulltext');
+    materialVisual.style.display = 'flex';
+  }
+el('materialKicker').textContent=`MATERI ${i+1} / ${MATERIALS.length}`;el('materialTitle').textContent=m.title;el('materialSubtitle').textContent=m.subtitle;el('materialCopy').innerHTML=m.html;el('materialPrev').disabled=i===0;el('materialNext').textContent=i===MATERIALS.length-1?(state.materialComplete?'✓ Materi Selesai':'Selesaikan Materi ✓'):'Berikutnya →';const src=ASSETS[`material${i+1}`];if(src){el('materialImage').src=src;el('materialImage').style.display='block';el('materialImagePh').style.display='none'}else{el('materialImage').style.display='none';el('materialImagePh').style.display='flex'};el('materialDots').innerHTML=MATERIALS.map((_,idx)=>`<span class="material-dot ${idx<i?'done':''} ${idx===i?'active':''}"></span>`).join('')}
+function changeMaterial(dir){if(dir<0){state.materialIndex=Math.max(0,state.materialIndex-1);renderMaterial();saveProgress();return}if(state.materialIndex===MATERIALS.length-1){state.materialComplete=true;updateLocks();saveProgress();el('materialFinishPopup').classList.add('show');return}state.materialIndex++;renderMaterial();saveProgress()}
+
+const MONTH_NAMES=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+
+function getMonsoonModel(month){
+  if([11,12,1,2].includes(month)){
+    return{
+      type:"west",
+      title:"Muson Barat",
+      icon:"🌧️",
+      sun:"Penyinaran Matahari lebih dominan ke belahan selatan; Australia memasuki periode yang relatif lebih hangat.",
+      heating:"Australia relatif lebih panas, sedangkan Asia relatif lebih dingin.",
+      pressure:"Asia relatif bertekanan lebih tinggi; Australia relatif bertekanan lebih rendah.",
+      airflow:"Udara bergerak secara umum dari Asia menuju Australia dan melewati Indonesia.",
+      asia:"🌡️ Relatif lebih dingin<br>🌀 Tekanan relatif lebih tinggi",
+      australia:"🌡️ Relatif lebih panas<br>🌀 Tekanan relatif lebih rendah",
+      info:"Pada periode ini pola Muson Barat dominan. Dalam model rute Jawa → Maluku, kondisi ini disederhanakan sebagai pola yang lebih mendukung pelayaran ke arah timur."
+    };
+  }
+
+  if([3,4].includes(month)){
+    return{
+      type:"transition",
+      phase:"Peralihan I",
+      title:"Masa Peralihan I",
+      icon:"🔄",
+      sun:"Posisi penyinaran Matahari bergerak melintasi sekitar ekuator menuju belahan utara.",
+      heating:"Perbedaan pemanasan Asia–Australia sedang berubah dan tidak sekuat periode muson utama.",
+      pressure:"Pola tekanan sedang berganti; gradien tekanan regional dapat melemah atau berubah.",
+      airflow:"Arah angin lebih bervariasi dan belum menunjukkan satu pola muson dominan yang stabil.",
+      asia:"🌡️ Mulai menghangat<br>🌀 Tekanan sedang berubah",
+      australia:"🌡️ Mulai mendingin<br>🌀 Tekanan sedang berubah",
+      info:"Ini adalah masa pancaroba. Arah dan kekuatan angin dapat lebih berubah-ubah dibanding periode Muson Barat atau Timur."
+    };
+  }
+
+  if([5,6,7,8,9].includes(month)){
+    return{
+      type:"east",
+      title:"Muson Timur",
+      icon:"☀️",
+      sun:"Penyinaran Matahari lebih dominan ke belahan utara; Asia memasuki periode yang relatif lebih hangat.",
+      heating:"Asia relatif lebih panas, sedangkan Australia relatif lebih dingin.",
+      pressure:"Australia relatif bertekanan lebih tinggi; Asia relatif bertekanan lebih rendah.",
+      airflow:"Udara bergerak secara umum dari Australia menuju Asia dan melewati Indonesia.",
+      asia:"🌡️ Relatif lebih panas<br>🌀 Tekanan relatif lebih rendah",
+      australia:"🌡️ Relatif lebih dingin<br>🌀 Tekanan relatif lebih tinggi",
+      info:"Pada periode ini pola Muson Timur dominan. Dalam model rute Jawa → Maluku, kondisi ini disederhanakan sebagai pola yang kurang mendukung pelayaran ke arah timur."
+    };
+  }
+
+  return{
+    type:"transition",
+    phase:"Peralihan II",
+    title:"Masa Peralihan II",
+    icon:"🔄",
+    sun:"Posisi penyinaran Matahari bergerak kembali melintasi sekitar ekuator menuju belahan selatan.",
+    heating:"Perbedaan pemanasan Asia–Australia sedang berganti arah.",
+    pressure:"Pola tekanan regional kembali mengalami perubahan.",
+    airflow:"Arah angin cenderung lebih bervariasi sebelum pola Muson Barat kembali dominan.",
+    asia:"🌡️ Mulai mendingin<br>🌀 Tekanan sedang berubah",
+    australia:"🌡️ Mulai menghangat<br>🌀 Tekanan sedang berubah",
+    info:"Ini adalah masa peralihan menuju Muson Barat. Waktu dan karakter pancaroba dapat berbeda antarwilayah Indonesia."
+  };
+}
+
+function tryOpenWindSimulation(){
+  if(!state.materialComplete){
+    alert("Selesaikan seluruh materi terlebih dahulu.");
+    return;
+  }
+  showScreen("windScreen");
+  updateMonthSimulation(true);
+}
+
+function setWindGroup(type){
+  ["windGroupWest","windGroupEast","windGroupTransition"].forEach(id=>el(id)?.classList.remove("active"));
+  if(type==="west")el("windGroupWest")?.classList.add("active");
+  else if(type==="east")el("windGroupEast")?.classList.add("active");
+  else el("windGroupTransition")?.classList.add("active");
+}
+
+function setTemperatureZones(type){
+  const asia=el("asiaTemperature");
+  const australia=el("australiaTemperature");
+  asia.className="temperature-zone asia-zone";
+  australia.className="temperature-zone australia-zone";
+
+  if(type==="west"){
+    asia.classList.add("cool-zone");
+    australia.classList.add("hot-zone");
+  }else if(type==="east"){
+    asia.classList.add("hot-zone");
+    australia.classList.add("cool-zone");
+  }else{
+    asia.classList.add("neutral-zone");
+    australia.classList.add("neutral-zone");
+  }
+}
+
+function updateMonthSimulation(recordObservation=false){
+  const slider=el("monthSlider");
+  const month=Math.max(1,Math.min(12,Number(slider?.value || state.windMonth || 1)));
+  state.windMonth=month;
+  if(slider)slider.value=month;
+
+  const model=getMonsoonModel(month);
+  state.windCurrent=model.type;
+
+  el("monthValue").textContent=MONTH_NAMES[month-1];
+  el("windTitle").textContent=`${MONTH_NAMES[month-1]} • ${model.title}`;
+  el("windStatus").textContent=`${model.icon} ${model.title}`;
+  el("sunPositionText").textContent=model.sun;
+  el("heatingText").textContent=model.heating;
+  el("pressureText").textContent=model.pressure;
+  el("airflowText").textContent=model.airflow;
+  el("asiaCondition").innerHTML=model.asia;
+  el("australiaCondition").innerHTML=model.australia;
+  el("windInfoBox").textContent=model.info;
+
+  el("asiaClimateBadge").innerHTML=`<b>ASIA</b>${model.asia}`;
+  el("australiaClimateBadge").innerHTML=`<b>AUSTRALIA</b>${model.australia}`;
+
+  setWindGroup(model.type);
+  setTemperatureZones(model.type);
+
+  if(recordObservation && ["west","east"].includes(model.type) && !state.windViewed.includes(model.type)){
+    state.windViewed.push(model.type);
+  }
+
+  updateWindProgress();
+  saveProgress();
+}
+
+function updateWindProgress(){
+  const observed=state.windViewed.filter(v=>["west","east"].includes(v));
+  const n=observed.length;
+  const box=el("windProgressBox");
+
+  if(n===2){
+    box.textContent="✓ Muson Barat dan Muson Timur sudah diamati. Latihan dan Lab Maya telah terbuka.";
+  }else{
+    const missing=[];
+    if(!observed.includes("west"))missing.push("Muson Barat");
+    if(!observed.includes("east"))missing.push("Muson Timur");
+    box.textContent=`Pola utama diamati: ${n} / 2 • Cari ${missing.join(" dan ")} dengan slider bulan.`;
+  }
+
+  box.classList.toggle("complete",n===2);
+  updateLocks();
+}
+
+function toggleWindPause(){
+  state.windPaused=!state.windPaused;
+  const svg=el("windSvg");
+  svg?.classList.toggle("paused",state.windPaused);
+
+  try{
+    if(state.windPaused)svg?.pauseAnimations?.();
+    else svg?.unpauseAnimations?.();
+  }catch(e){}
+
+  el("windPauseBtn").textContent=state.windPaused?"▶ Putar Animasi":"⏸ Jeda Animasi";
+}
+
+function openWindExplanation(){
+  openModal("windExplainModal");
+}
+
+function updateLocks(){
+  const windReady=state.materialComplete;
+  const afterWind=state.windViewed.includes('west')&&state.windViewed.includes('east');
+  const w=el('windMenuCard');w.disabled=!windReady;w.classList.toggle('locked',!windReady);el('windMenuText').textContent=windReady?(afterWind?'✓ Muson Barat & Timur sudah ditemukan':'Terbuka • Geser bulan dan temukan 2 pola muson'):'🔒 Selesaikan seluruh materi terlebih dahulu';
+  [ ['practiceMenuCard','practiceMenuText'],['labMenuCard','labMenuText'] ].forEach(([c,t])=>{el(c).disabled=!afterWind;el(c).classList.toggle('locked',!afterWind);el(t).textContent=afterWind?(c==='practiceMenuCard'?'Terbuka • 10 soal pemahaman':`Terbuka • ${state.scenariosViewed.length}/6 hasil sudah diamati`):'🔒 Temukan Muson Barat & Timur pada simulasi terlebih dahulu'});
+  el('materialMenuText').textContent=state.materialComplete?`✓ ${MATERIALS.length}/${MATERIALS.length} materi selesai`:`${MATERIALS.length} slide materi • mulai dari konsep dasar`;
+  const all=state.scenariosViewed.length===6;el('summaryBtn').disabled=!all;el('summaryBtn').classList.toggle('locked',!all);el('reflectionBtn').disabled=!all;el('reflectionBtn').classList.toggle('locked',!all);el('scenarioProgressText').textContent=all?'✓ Seluruh 6 skenario telah diamati. Rangkuman dan Refleksi terbuka.':`Hasil simulasi diamati: ${state.scenariosViewed.length} / 6`;
+}
+
+function tryOpenPractice(){if(!(state.windViewed.includes('west')&&state.windViewed.includes('east'))){alert('Geser slider bulan dan temukan pola Muson Barat serta Muson Timur terlebih dahulu.');return}startPractice()}
+function startPractice(){state.practiceIndex=0;state.practiceScore=0;state.practiceAnswered=false;state.practiceResults=[];renderPractice();showScreen('practiceScreen')}
+function renderPractice(){const q=PRACTICE[state.practiceIndex];el('practiceCounter').textContent=`Soal ${state.practiceIndex+1} / ${PRACTICE.length}`;el('practiceBar').style.width=`${((state.practiceIndex+1)/PRACTICE.length)*100}%`;el('practiceTopic').textContent=q.topic.toUpperCase();el('practiceQuestion').textContent=q.q;el('practiceFeedback').textContent='Pilih jawaban yang menurutmu paling tepat.';el('practiceNext').disabled=true;state.practiceAnswered=false;el('practiceOptions').innerHTML=q.opts.map((o,i)=>`<button class="option-btn" onclick="answerPractice(${i},this)">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+function answerPractice(index,btn){if(state.practiceAnswered)return;state.practiceAnswered=true;const q=PRACTICE[state.practiceIndex],correct=index===q.a;if(correct)state.practiceScore++;state.practiceResults.push(correct);document.querySelectorAll('#practiceOptions .option-btn').forEach((b,i)=>{b.disabled=true;if(i===q.a)b.classList.add('correct');if(i===index&&!correct)b.classList.add('wrong')});el('practiceFeedback').innerHTML=`${correct?'✓ Benar.':'✗ Belum tepat.'} ${q.exp}`;el('practiceNext').disabled=false;el('practiceNext').textContent=state.practiceIndex===PRACTICE.length-1?'Lihat Hasil →':'Berikutnya →'}
+function nextPractice(){if(!state.practiceAnswered)return;if(state.practiceIndex===PRACTICE.length-1){finishPractice();return}state.practiceIndex++;renderPractice();saveProgress()}
+function finishPractice(){state.practiceComplete=true;const pct=Math.round(state.practiceScore/PRACTICE.length*100);el('practiceScore').textContent=pct;el('practiceResultTitle').textContent=pct>=80?'Pemahamanmu sangat baik!':pct>=60?'Pemahamanmu sudah cukup baik.':'Ayo pelajari kembali materinya.';el('practiceResultText').textContent=`Jawaban benar ${state.practiceScore} dari ${PRACTICE.length} soal. Latihan ini tidak mengunci Lab Maya; gunakan hasilnya untuk mengetahui bagian materi yang perlu kamu pelajari kembali.`;showScreen('practiceResult');saveProgress()}
+function restartPractice(){startPractice()}
+
+function tryOpenLab(){
+  if(!(state.windViewed.includes('west')&&state.windViewed.includes('east'))){
+    alert('Geser slider bulan dan temukan pola Muson Barat serta Muson Timur terlebih dahulu.');
+    return;
+  }
+
+  updateLabSelection();
+  updateLocks();
+  showScreen('labScreen');
+
+  openModal('labIntroModal');
+}
+
+function closeLabIntro(){
+  closeModal('labIntroModal');
+}
+
+function selectDeparture(type){
+  state.labDeparture=type;
+  state.labWind=type; // kompatibilitas dengan 6 skenario hasil yang sudah ada
+
+  el('departureWest').classList.toggle('selected',type==='west');
+  el('departureEast').classList.toggle('selected',type==='east');
+
+  const detected=el('labDetectedMuson');
+  if(type==='west'){
+    detected.innerHTML='<b>Kondisi terdeteksi: Muson Barat</b><br>Periode Desember–Februari dalam model ini berkaitan dengan pola angin baratan.';
+  }else{
+    detected.innerHTML='<b>Kondisi terdeteksi: Muson Timur</b><br>Periode Juni–Agustus dalam model ini berkaitan dengan pola angin timuran.';
+  }
+  detected.classList.add('detected');
+
+  updateLabSelection();
+  saveProgress();
+}
+
+function selectShip(type){
+  state.ship=type;
+  ['jong','padewakang','pencalang'].forEach(s=>
+    el(`ship${s.charAt(0).toUpperCase()+s.slice(1)}`).classList.toggle('selected',type===s)
+  );
+  updateLabSelection();
+  saveProgress();
+}
+
+function updateLabSelection(){
+  el('startSimulationBtn').disabled=!(state.labDeparture&&state.ship);
+}
+
+function runSimulation(){
+  if(!state.labDeparture||!state.ship)return;
+
+  state.labWind=state.labDeparture;
+  const key=`${state.labWind}-${state.ship}`;
+  const sc=SCENARIOS[key];
+  state.currentScenario=key;
+
+  if(!state.scenariosViewed.includes(key))state.scenariosViewed.push(key);
+
+  const video=el('resultVideo');
+  const ph=el('resultVideoPh');
+  const src=ASSETS[sc.video];
+
+  if(src){
+    video.src=src;
+    video.style.display='block';
+    ph.style.display='none';
+    video.currentTime=0;
+    video.muted=true;
+    video.loop=true;
+    const p=video.play();
+    el('resultVideoControl').textContent='⏸ Pause';
+    if(p&&typeof p.catch==='function')p.catch(()=>{});
+  }else{
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+    video.style.display='none';
+    ph.style.display='flex';
+    ph.innerHTML=`<b>${sc.period} • ${sc.shipName}</b><small>Tambahkan video melalui ASSETS.${sc.video}</small>`;
+  }
+
+  updateLocks();
+  showScreen('resultScreen');
+  saveProgress();
+}
+
+function openResultExplanation(){
+  const sc=SCENARIOS[state.currentScenario];
+  if(!sc)return;
+
+  el('resultExplainTitle').textContent=`${sc.status} • ${sc.title}`;
+  el('resultExplainPeriod').textContent=sc.period;
+  el('resultExplainMuson').textContent=sc.muson;
+  el('resultExplainShip').textContent=sc.shipName;
+  el('resultExplainWhat').textContent=sc.what;
+  el('resultExplainWhy').textContent=sc.why;
+  el('resultExplainLesson').textContent=sc.lesson;
+
+  openModal('resultExplainModal');
+}
+
+function toggleResultVideo(){
+  const video=el('resultVideo');
+  const btn=el('resultVideoControl');
+
+  if(!video)return;
+
+  if(video.paused){
+    video.play();
+    btn.textContent='⏸ Pause';
+  }else{
+    video.pause();
+    btn.textContent='▶ Play';
+  }
+}
+
+function retrySimulation(){
+  const video=el('resultVideo');
+  if(video){
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
+  showScreen('labScreen');
+}
+
+function tryOpenSummary(){if(state.scenariosViewed.length<6){alert(`Rangkuman masih terkunci.\n\nAmati semua 6 kombinasi terlebih dahulu. Progres saat ini: ${state.scenariosViewed.length}/6.`);return}openModal('summaryModal')}
+function tryOpenReflection(){if(state.scenariosViewed.length<6){alert(`Refleksi masih terkunci.\n\nAmati semua 6 kombinasi terlebih dahulu. Progres saat ini: ${state.scenariosViewed.length}/6.`);return}showScreen('reflectionScreen')}
+
+function renderGlossary(){el('glossaryGrid').innerHTML=Object.entries(GLOSSARY).sort((a,b)=>a[0].localeCompare(b[0],'id')).map(([k,v])=>`<div class="glossary-item"><b>${k}</b><span>${v}</span></div>`).join('')}
+function saveProgress(){try{const data={info:state.info,materialIndex:state.materialIndex,materialComplete:state.materialComplete,windViewed:state.windViewed,windMonth:state.windMonth,practiceComplete:state.practiceComplete,scenariosViewed:state.scenariosViewed,labDeparture:state.labDeparture,labWind:state.labWind,ship:state.ship,reflections:['ref1','ref2','ref3','ref4'].reduce((o,id)=>(o[id]=el(id)?.value||'',o),{})};localStorage.setItem(STORAGE_KEY,JSON.stringify(data))}catch(e){console.warn(e)}}
+function restoreProgress(){try{const d=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(!d)return;state.info={goal:!!d.info?.goal,guide:!!d.info?.guide};state.materialIndex=Math.max(0,Math.min(MATERIALS.length-1,Number(d.materialIndex)||0));state.materialComplete=!!d.materialComplete;state.windViewed=Array.isArray(d.windViewed)?[...new Set(d.windViewed.filter(v=>['west','east'].includes(v)))]:[];state.windMonth=Math.max(1,Math.min(12,Number(d.windMonth)||1));state.practiceComplete=!!d.practiceComplete;state.scenariosViewed=Array.isArray(d.scenariosViewed)?[...new Set(d.scenariosViewed.filter(k=>SCENARIOS[k]))]:[];state.labDeparture=['west','east'].includes(d.labDeparture)?d.labDeparture:(['west','east'].includes(d.labWind)?d.labWind:null);state.labWind=state.labDeparture;state.ship=['jong','padewakang','pencalang'].includes(d.ship)?d.ship:null;if(d.reflections)Object.entries(d.reflections).forEach(([id,v])=>{if(el(id))el(id).value=v||''})}catch(e){console.warn('Progres tidak dapat dipulihkan',e)}}
+function resetAllProgress(){if(!confirm('Reset seluruh progres media?\n\nMateri, simulasi, latihan, hasil Lab Maya, dan refleksi akan dihapus dari perangkat ini.'))return;localStorage.removeItem(STORAGE_KEY);location.reload()}
+
+function init(){applyAssets();renderGlossary();restoreProgress();updateInfoGate();if(el('monthSlider'))el('monthSlider').value=state.windMonth;updateMonthSimulation(false);updateLocks();if(state.materialIndex)renderMaterial();if(state.labDeparture)selectDeparture(state.labDeparture);if(state.ship)selectShip(state.ship);}
+init();
+</script>
+</body>
+</html>
